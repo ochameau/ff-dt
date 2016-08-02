@@ -5,14 +5,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 "use strict";
 
-const Immutable = require("devtools/client/shared/vendor/immutable");
-const PrefState = Immutable.Record({
-  logLimit: 1000
-});
-
-function prefs(state = new PrefState(), action) {
-  return state;
+function getAllFilters(state) {
+  return state.filters;
 }
 
-exports.PrefState = PrefState;
-exports.prefs = prefs;
+exports.getAllFilters = getAllFilters;

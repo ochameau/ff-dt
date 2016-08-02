@@ -5,14 +5,21 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 "use strict";
 
+const constants = require("devtools/client/webconsole/new-console-output/constants");
 const Immutable = require("devtools/client/shared/vendor/immutable");
-const PrefState = Immutable.Record({
-  logLimit: 1000
+
+const Ui = Immutable.Record({
+  configFilterBarVisible: false,
+  filteredMessageVisible: false
 });
 
-function prefs(state = new PrefState(), action) {
+function ui(state = new Ui(), action) {
+  switch (action.type) {
+    case constants.FILTERBAR_TOGGLE:
+      return state.set("configFilterBarVisible", !state.configFilterBarVisible);
+  }
+
   return state;
 }
 
-exports.PrefState = PrefState;
-exports.prefs = prefs;
+exports.ui = ui;
