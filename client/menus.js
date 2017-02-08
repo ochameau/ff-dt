@@ -188,4 +188,149 @@ exports.menuitems = [
       window.openUILinkIn("https://addons.mozilla.org/firefox/collections/mozilla/webdeveloper/", "tab");
     }
   },
+  {
+    id: "dev-edition-profile",
+    l10nKey: "devEditionProfile",
+    oncommand(event) {
+      let profileName = "dev-edition";
+      let { Cc, Ci, Cu } = require("chrome");
+      // Create dev-edition profile and get path to it
+      let profileService = Cc["@mozilla.org/toolkit/profile-service;1"]
+        .getService(Ci.nsIToolkitProfileService);
+
+      let profile;
+      try {
+        // getProfileByName throws if it doesn't exists yet
+        profile = profileService.getProfileByName(profileName);
+      } catch(e) {}
+      if (!profile) {
+        profile = profileService.createProfile(null, profileName);
+        profileService.flush();
+      }
+      let profilePath = profile.rootDir.path;
+
+      let firefox_bin = Services.dirsvc.get("XREExeF", Ci.nsIFile);
+
+      if (Services.appinfo.OS == "WINNT") {
+        let linkName = "Mozilla Developer Edition.lnk";
+
+        // Create shortcut file to current firefox binary
+        // and with -profile command line argument refering to dev-edition profile
+        let shortcut = Services.dirsvc.get("TmpD", Ci.nsIFile);
+        shortcut.append(linkName);
+
+        // Previous failure may have let some junk
+        if (shortcut.exists()) {
+          try {
+            shortcut.remove(false);
+          } catch(e) {}
+        }
+        shortcut.createUnique(Ci.nsIFile.NORMAL_FILE_TYPE, 0o666);
+
+        /* function nsILocalFileWin.setShortcut(targetFile, workingDir, args,
+                                                description, iconFile, iconIndex) */
+        shortcut.QueryInterface(Ci.nsILocalFileWin);
+        shortcut.setShortcut(firefox_bin,
+          firefox_bin.parent,
+          "-profile \""+profilePath+"\" -no-remote",
+          "Mozilla Developer Edition",
+          firefox_bin,
+          0);
+
+        // Copy the shortcut to Desktop and Start menu
+        let desktop = Services.dirsvc.get("Desk", Ci.nsIFile);
+        let progs = Services.dirsvc.get("Progs", Ci.nsIFile);
+        shortcut.copyTo(desktop, shortcut.leafName);
+        shortcut.copyTo(progs, shortcut.leafName);
+
+        // Remove the temporary shortcut file
+        shortcut.remove(false);
+      } else if (Services.appinfo.OS == "Darwin") {
+        Cu.import("resource://gre/modules/FileUtils.jsm");
+        function writeToFile(file, contents) {
+         let outputStream = FileUtils.openFileOutputStream(file);
+         outputStream.write(contents, contents.length);
+         outputStream.close();
+        }
+        let appName = "Mozilla Developer Edition";
+        let app = Services.dirsvc.get("TmpD", Ci.nsIFile);
+        if (app.exists())
+          app.remove(true);
+        app.append(appName + ".app");
+        let script = app.clone();
+        script.create(Ci.nsIFile.DIRECTORY_TYPE, 0o755);
+        script.append("Contents");
+        script.create(Ci.nsIFile.DIRECTORY_TYPE, 0o755);
+        script.append("MacOS");
+        script.create(Ci.nsIFile.DIRECTORY_TYPE, 0o755);
+        script.append(appName);
+        script.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0o755);
+        let shellScript = [
+          "#!/usr/bin/env bash",
+          firefox_bin.path + " -profile \"" + profilePath.replace("\\", "\\\\") + "\" -no-remote"
+        ];
+        writeToFile(script, shellScript.join("\n"));
+
+        // Move it to /applications
+        let applications = Services.dirsvc.get("LocApp", Ci.nsIFile);
+        let window = event.target.ownerDocument.defaultView;
+        if (!applications.isWritable()) {
+          window.alert("Not enough privileges to install it in /Applications");
+          return;
+        }
+        let dest = applications.clone();
+        dest.append(app.leafName);
+        if (dest.exists())
+          dest.remove(true);
+        app.moveTo(applications, app.leafName);
+
+        // On latest Mac only signed application can be opened
+        // so ask user to manually flag security exception
+        window.alert("Right click on '"+appName+"' to select 'Open' and accept the security exception.");
+        app.reveal();
+
+        // Return to prevent automatic opening of dev edition on Mac
+        return;
+      } else {
+        let xdg_data_home = Cc["@mozilla.org/process/environment;1"].
+                            getService(Ci.nsIEnvironment).
+                            get("XDG_DATA_HOME");
+        let desktop;
+        if (!xdg_data_home) {
+          desktop = Services.dirsvc.get("Home", Ci.nsIFile);
+          desktop.append(".local");
+          desktop.append("share");
+        } else {
+          desktop = Cc["@mozilla.org/file/local;1"]
+                      .createInstance(Ci.nsILocalFile);
+          desktop.initWithPath(xdg_data_home);
+        }
+        desktop.append("applications");
+        desktop.append("dev-edition.desktop");
+
+        // TODO: robustify icon retrieval
+        let icon = firefox_bin.clone().parent;
+        icon.append("browser");
+        icon.append("icons");
+        icon.append("mozicon128.png");
+
+        let writer = Cc["@mozilla.org/xpcom/ini-processor-factory;1"].
+               getService(Ci.nsIINIParserFactory).
+               createINIParser(desktop).
+               QueryInterface(Ci.nsIINIParserWriter);
+        writer.setString("Desktop Entry", "Name", "Mozilla Developer Edition");
+        writer.setString("Desktop Entry", "Comment", "Mozilla Developer Edition");
+        writer.setString("Desktop Entry", "Exec", '"' + firefox_bin.path + '" -profile "' + profilePath.replace("\\", "\\\\") + '" -no-remote');
+        writer.setString("Desktop Entry", "Icon", icon.path);
+        writer.setString("Desktop Entry", "Type", "Application");
+        writer.setString("Desktop Entry", "Terminal", "false");
+        writer.writeFile();
+      }
+      // Finally, open dev edition!
+      // (shortcut.launch() doesn't work as it doesn't pass the shortcut command line arguments)
+      let p = Cc["@mozilla.org/process/util;1"].createInstance(Ci.nsIProcess);
+      p.init(firefox_bin);
+      p.run(false, ["-profile", profilePath, "-no-remote"], 3);
+    }
+  }
 ];
