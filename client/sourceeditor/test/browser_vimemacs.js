@@ -3,7 +3,7 @@
 
 "use strict";
 
-const URI = "chrome://mochitests/content/browser/devtools/client" +
+const URI = "chrome://mochitests/content/browser/client" +
             "/sourceeditor/test/codemirror/vimemacs.html";
 loadHelperScript("helper_codemirror_runner.js");
 

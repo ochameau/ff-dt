@@ -23,10 +23,10 @@ stubPreparedMessages.set("Unknown property ‘such-unknown-property’.  Declara
   "messageText": "Unknown property ‘such-unknown-property’.  Declaration dropped.",
   "parameters": null,
   "repeat": 1,
-  "repeatId": "{\"id\":null,\"allowRepeating\":true,\"source\":\"css\",\"timeStamp\":1479159920406,\"type\":\"log\",\"level\":\"warn\",\"messageText\":\"Unknown property ‘such-unknown-property’.  Declaration dropped.\",\"parameters\":null,\"repeatId\":null,\"stacktrace\":null,\"frame\":{\"source\":\"http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Unknown%20property\",\"line\":3,\"column\":23},\"groupId\":null,\"userProvidedStyles\":null}",
+  "repeatId": "{\"id\":null,\"allowRepeating\":true,\"source\":\"css\",\"timeStamp\":1479159920406,\"type\":\"log\",\"level\":\"warn\",\"messageText\":\"Unknown property ‘such-unknown-property’.  Declaration dropped.\",\"parameters\":null,\"repeatId\":null,\"stacktrace\":null,\"frame\":{\"source\":\"http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Unknown%20property\",\"line\":3,\"column\":23},\"groupId\":null,\"userProvidedStyles\":null}",
   "stacktrace": null,
   "frame": {
-    "source": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Unknown%20property",
+    "source": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Unknown%20property",
     "line": 3,
     "column": 23
   },
@@ -44,10 +44,10 @@ stubPreparedMessages.set("Error in parsing value for ‘padding-top’.  Declara
   "messageText": "Error in parsing value for ‘padding-top’.  Declaration dropped.",
   "parameters": null,
   "repeat": 1,
-  "repeatId": "{\"id\":null,\"allowRepeating\":true,\"source\":\"css\",\"timeStamp\":1479159920465,\"type\":\"log\",\"level\":\"warn\",\"messageText\":\"Error in parsing value for ‘padding-top’.  Declaration dropped.\",\"parameters\":null,\"repeatId\":null,\"stacktrace\":null,\"frame\":{\"source\":\"http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Invalid%20property%20value\",\"line\":3,\"column\":15},\"groupId\":null,\"userProvidedStyles\":null}",
+  "repeatId": "{\"id\":null,\"allowRepeating\":true,\"source\":\"css\",\"timeStamp\":1479159920465,\"type\":\"log\",\"level\":\"warn\",\"messageText\":\"Error in parsing value for ‘padding-top’.  Declaration dropped.\",\"parameters\":null,\"repeatId\":null,\"stacktrace\":null,\"frame\":{\"source\":\"http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Invalid%20property%20value\",\"line\":3,\"column\":15},\"groupId\":null,\"userProvidedStyles\":null}",
   "stacktrace": null,
   "frame": {
-    "source": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Invalid%20property%20value",
+    "source": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Invalid%20property%20value",
     "line": 3,
     "column": 15
   },
@@ -61,7 +61,7 @@ stubPackets.set("Unknown property ‘such-unknown-property’.  Declaration drop
   "pageError": {
     "errorMessage": "Unknown property ‘such-unknown-property’.  Declaration dropped.",
     "errorMessageName": "",
-    "sourceName": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Unknown%20property",
+    "sourceName": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Unknown%20property",
     "lineText": "  such-unknown-property: wow;",
     "lineNumber": 3,
     "columnNumber": 23,
@@ -83,7 +83,7 @@ stubPackets.set("Error in parsing value for ‘padding-top’.  Declaration drop
   "pageError": {
     "errorMessage": "Error in parsing value for ‘padding-top’.  Declaration dropped.",
     "errorMessageName": "",
-    "sourceName": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Invalid%20property%20value",
+    "sourceName": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.css?key=Invalid%20property%20value",
     "lineText": "  padding-top: invalid value;",
     "lineNumber": 3,
     "columnNumber": 15,

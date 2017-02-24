@@ -8,7 +8,7 @@
 Cu.import("resource://gre/modules/osfile.jsm", {});
 const TARGET = "networkEvent";
 const { [TARGET]: snippets } = require("devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/stub-snippets.js");
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html";
+const TEST_URI = "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html";
 
 let stubs = {
   preparedMessages: [],

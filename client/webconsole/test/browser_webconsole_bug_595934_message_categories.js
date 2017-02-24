@@ -7,7 +7,7 @@
 
 const TEST_URI = "data:text/html;charset=utf-8,Web Console test for " +
                  "bug 595934 - message categories coverage.";
-const TESTS_PATH = "http://example.com/browser/devtools/client/webconsole/" +
+const TESTS_PATH = "http://example.com/browser/client/webconsole/" +
                    "test/";
 const TESTS = [
   {

@@ -24,7 +24,7 @@ const { INDENT_WIDTH } = require("devtools/client/webconsole/new-console-output/
 const { stubPreparedMessages } = require("devtools/client/webconsole/new-console-output/test/fixtures/stubs/index");
 const serviceContainer = require("devtools/client/webconsole/new-console-output/test/fixtures/serviceContainer");
 
-const tempfilePath = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.js";
+const tempfilePath = "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-tempfile.js";
 
 describe("ConsoleAPICall component:", () => {
   describe("console.log", () => {
@@ -246,7 +246,7 @@ describe("ConsoleAPICall component:", () => {
       const wrapper = render(ConsoleApiCall({ message, serviceContainer }));
 
       expect(wrapper.find(".message-body").text())
-        .toBe("Window http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-console-api.html");
+        .toBe("Window http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-console-api.html");
     });
   });
 });

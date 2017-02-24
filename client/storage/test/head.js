@@ -9,7 +9,7 @@
 
 // shared-head.js handles imports, constants, and utility functions
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/framework/test/shared-head.js",
+  "chrome://mochitests/content/browser/client/framework/test/shared-head.js",
   this);
 
 const {TableWidget} = require("devtools/client/shared/widgets/TableWidget");
@@ -20,7 +20,7 @@ const DUMPEMIT_PREF = "devtools.dump.emit";
 const DEBUGGERLOG_PREF = "devtools.debugger.log";
 // Allows Cache API to be working on usage `http` test page
 const CACHES_ON_HTTP_PREF = "dom.caches.testing.enabled";
-const PATH = "browser/devtools/client/storage/test/";
+const PATH = "browser/client/storage/test/";
 const MAIN_DOMAIN = "http://test1.example.org/" + PATH;
 const ALT_DOMAIN = "http://sectest1.example.org/" + PATH;
 const ALT_DOMAIN_SECURED = "https://sectest1.example.org:443/" + PATH;

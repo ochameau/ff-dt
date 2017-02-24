@@ -21,7 +21,7 @@ var { isWebGLSupported } = require("devtools/client/shared/webgl-utils");
 var mm = null;
 
 const FRAME_SCRIPT_UTILS_URL = "chrome://devtools/content/shared/frame-script-utils.js";
-const EXAMPLE_URL = "http://example.com/browser/devtools/client/shadereditor/test/";
+const EXAMPLE_URL = "http://example.com/browser/client/shadereditor/test/";
 const SIMPLE_CANVAS_URL = EXAMPLE_URL + "doc_simple-canvas.html";
 const SHADER_ORDER_URL = EXAMPLE_URL + "doc_shader-order.html";
 const MULTIPLE_CONTEXTS_URL = EXAMPLE_URL + "doc_multiple-contexts.html";

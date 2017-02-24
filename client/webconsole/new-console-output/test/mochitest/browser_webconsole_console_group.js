@@ -8,7 +8,7 @@
 // Check console.group, console.groupCollapsed and console.groupEnd calls
 // behave as expected.
 
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/mochitest/test-console-group.html";
+const TEST_URI = "http://example.com/browser/client/webconsole/new-console-output/test/mochitest/test-console-group.html";
 const { INDENT_WIDTH } = require("devtools/client/webconsole/new-console-output/components/message-indent");
 
 add_task(function* () {

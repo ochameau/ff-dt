@@ -29,9 +29,9 @@ const TESTS = [
         cookies: {
           "http://test1.example.org": [
             getCookieId("c1", "test1.example.org",
-                        "/browser/devtools/server/tests/browser/"),
+                        "/browser/server/tests/browser/"),
             getCookieId("c2", "test1.example.org",
-                        "/browser/devtools/server/tests/browser/")
+                        "/browser/server/tests/browser/")
           ]
         },
         localStorage: {
@@ -55,7 +55,7 @@ const TESTS = [
         cookies: {
           "http://test1.example.org": [
             getCookieId("c1", "test1.example.org",
-                        "/browser/devtools/server/tests/browser/"),
+                        "/browser/server/tests/browser/"),
           ]
         }
       },
@@ -84,7 +84,7 @@ const TESTS = [
         cookies: {
           "http://test1.example.org": [
             getCookieId("c2", "test1.example.org",
-                        "/browser/devtools/server/tests/browser/"),
+                        "/browser/server/tests/browser/"),
           ]
         },
         localStorage: {
@@ -125,7 +125,7 @@ const TESTS = [
         cookies: {
           "http://test1.example.org": [
             getCookieId("c3", "test1.example.org",
-                        "/browser/devtools/server/tests/browser/"),
+                        "/browser/server/tests/browser/"),
           ]
         },
         sessionStorage: {
@@ -141,7 +141,7 @@ const TESTS = [
         cookies: {
           "http://test1.example.org": [
             getCookieId("c1", "test1.example.org",
-                        "/browser/devtools/server/tests/browser/"),
+                        "/browser/server/tests/browser/"),
           ]
         },
         localStorage: {
@@ -177,7 +177,7 @@ const TESTS = [
         cookies: {
           "http://test1.example.org": [
             getCookieId("c3", "test1.example.org",
-                        "/browser/devtools/server/tests/browser/"),
+                        "/browser/server/tests/browser/"),
           ]
         }
       }

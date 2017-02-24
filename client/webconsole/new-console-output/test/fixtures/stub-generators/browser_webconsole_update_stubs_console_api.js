@@ -9,7 +9,7 @@ requestLongerTimeout(2);
 Cu.import("resource://gre/modules/osfile.jsm", {});
 const { consoleApi: snippets } = require("devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/stub-snippets.js");
 
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-console-api.html";
+const TEST_URI = "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-console-api.html";
 
 let stubs = {
   preparedMessages: [],

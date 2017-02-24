@@ -5,7 +5,7 @@
 
 "use strict";
 
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/mochitest/test-location-styleeditor-link.html";
+const TEST_URI = "http://example.com/browser/client/webconsole/new-console-output/test/mochitest/test-location-styleeditor-link.html";
 
 add_task(function* () {
   yield pushPref("devtools.webconsole.filter.css", true);

@@ -3,7 +3,7 @@
 
 "use strict";
 
-const TEST_URI = "http://mochi.test:8888/browser/devtools/client/" +
+const TEST_URI = "http://mochi.test:8888/browser/client/" +
                  "responsivedesign/test/touch.html";
 const layoutReflowSynthMouseMove = "layout.reflow.synthMouseMove";
 const domViewportEnabled = "dom.meta-viewport.enabled";

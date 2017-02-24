@@ -83,12 +83,12 @@ add_task(function* () {
         getCookieId("c1", "test1.example.org", "/browser"),
         getCookieId("c2", "test1.example.org", "/browser"),
         getCookieId("c3", "test1.example.org",
-                    "/browser/devtools/client/storage/test/")
+                    "/browser/client/storage/test/")
       ]
     ],
   ]);
   let c3id = getCookieId("c3", "test1.example.org",
-                         "/browser/devtools/client/storage/test/");
+                         "/browser/client/storage/test/");
   checkCell(c3id, "value", "booyeah");
 
   // Add another
@@ -105,14 +105,14 @@ add_task(function* () {
         getCookieId("c1", "test1.example.org", "/browser"),
         getCookieId("c2", "test1.example.org", "/browser"),
         getCookieId("c3", "test1.example.org",
-                    "/browser/devtools/client/storage/test/"),
+                    "/browser/client/storage/test/"),
         getCookieId("c4", "test1.example.org",
-                    "/browser/devtools/client/storage/test/")
+                    "/browser/client/storage/test/")
       ]
     ],
   ]);
   let c4id = getCookieId("c4", "test1.example.org",
-                         "/browser/devtools/client/storage/test/");
+                         "/browser/client/storage/test/");
   checkCell(c4id, "value", "booyeah");
 
   // Removing cookies
@@ -126,9 +126,9 @@ add_task(function* () {
       [
         getCookieId("c2", "test1.example.org", "/browser"),
         getCookieId("c3", "test1.example.org",
-                    "/browser/devtools/client/storage/test/"),
+                    "/browser/client/storage/test/"),
         getCookieId("c4", "test1.example.org",
-                    "/browser/devtools/client/storage/test/")
+                    "/browser/client/storage/test/")
       ]
     ],
   ]);
@@ -149,7 +149,7 @@ add_task(function* () {
       [
         getCookieId("c2", "test1.example.org", "/browser"),
         getCookieId("c4", "test1.example.org",
-                    "/browser/devtools/client/storage/test/")
+                    "/browser/client/storage/test/")
       ]
     ],
   ]);
@@ -166,7 +166,7 @@ add_task(function* () {
       ["cookies", "http://test1.example.org"],
       [
         getCookieId("c4", "test1.example.org",
-                    "/browser/devtools/client/storage/test/")
+                    "/browser/client/storage/test/")
       ]
     ],
   ]);

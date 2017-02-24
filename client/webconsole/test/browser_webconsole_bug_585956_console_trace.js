@@ -5,7 +5,7 @@
 
 "use strict";
 
-const TEST_URI = "http://example.com/browser/devtools/client/" +
+const TEST_URI = "http://example.com/browser/client/" +
                  "webconsole/test/test-bug-585956-console-trace.html";
 
 add_task(function* () {
