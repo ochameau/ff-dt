@@ -27,4 +27,8 @@ script:
   - echo $SHA
   - ./scripts/build-xpi.sh
   - ./scripts/upload-xpi.sh $SHA
-  - ./test.sh client/framework/
+  - mkdir -p upload
+  - export MOZ_UPLOAD_DIR=$PWD/upload
+  - ./test.sh --quiet --screenshot-on-fail client/framework/ 2>&1 | tee logs
+  - ./scripts/upload-screenshot.sh $SHA upload/
+  - ./scripts/upload-status.sh $SHA logs
