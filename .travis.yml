@@ -1,0 +1,34 @@
+language: python
+python:
+  - "2.7"
+
+addons:
+  apt:
+    packages:
+      - sshpass
+      - p7zip-full
+      - xvfb
+env:
+  - DISPLAY=':99.0'
+
+install:
+  - pip install --upgrade pip
+  - source config.sh
+
+before_script:
+  - sh -e /etc/init.d/xvfb start
+
+script:
+  - if [[ "$TRAVIS_PULL_REQUEST" != "false" && "$TRAVIS_PULL_REQUEST_SHA" != "" ]] ; then
+      export SHA=$TRAVIS_PULL_REQUEST_SHA;
+    elif [[ "$TRAVIS_COMMIT" != "" ]] ; then
+      export SHA=$TRAVIS_COMMIT;
+    fi
+  - echo $SHA
+  - ./scripts/build-xpi.sh
+  - ./scripts/upload-xpi.sh $SHA
+  - mkdir -p upload
+  - export MOZ_UPLOAD_DIR=$PWD/upload
+  - ./test.sh --quiet --screenshot-on-fail client/framework/ 2>&1 | tee logs
+  - ./scripts/upload-screenshot.sh $SHA upload/
+  - ./scripts/upload-status.sh $SHA logs
