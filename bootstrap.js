@@ -10,12 +10,57 @@
 const Cu = Components.utils;
 const Ci = Components.interfaces;
 const {Services} = Cu.import("resource://gre/modules/Services.jsm", {});
+const {NetUtil} = Cu.import("resource://gre/modules/NetUtil.jsm", {});
 
 function actionOccurred(id) {
   let {require} = Cu.import("resource://devtools/shared/Loader.jsm", {});
   let Telemetry = require("devtools/client/shared/telemetry");
   let telemetry = new Telemetry();
   telemetry.actionOccurred(id);
+}
+
+function readURI(uri) {
+  let stream = NetUtil.newChannel({
+    uri: NetUtil.newURI(uri, 'UTF-8'),
+    loadUsingSystemPrincipal: true}
+  ).open2();
+  let count = stream.available();
+  let data = NetUtil.readInputStreamToString(stream, count, {
+    charset: 'UTF-8'
+  });
+
+  stream.close();
+
+  return data;
+}
+
+function processPrefFile(url) {
+  let content = readURI(url);
+  content.match(/pref\("[^"]+",\s*.+\s*\)/g).forEach(item => {
+    let m = item.match(/pref\("([^"]+)",\s*(.+)\s*\)/);
+    let name = m[1];
+    let val = m[2];
+
+    // Prevent overriding prefs that have been changed by the user
+    if (Services.prefs.prefHasUserValue(name)) {
+      return;
+    }
+    if ((val.startsWith("\"") && val.endsWith("\"")) ||
+        (val.startsWith("'") && val.endsWith("'"))) {
+      Services.prefs.setCharPref(name, val.substr(1, val.length-2));
+    } else if (val.match(/[0-9]+/)) {
+      Services.prefs.setIntPref(name, parseInt(val));
+    } else if (val == "true" || val == "false") {
+      Services.prefs.setBoolPref(name, val == "true");
+    } else {
+      dump("unable to match type: "+val+"\n");
+    }
+  });
+}
+
+function setPrefs(resourceURI) {
+  processPrefFile(resourceURI.spec + "./client/preferences/devtools.js");
+  processPrefFile(resourceURI.spec + "./client/preferences/debugger.js");
 }
 
 // Helper to listen to a key on all windows
@@ -206,8 +251,9 @@ let prefs = {
 let originalPrefValues = {};
 
 let listener;
-function startup() {
+function startup(data) {
   dump("DevTools addon started.\n");
+
   listener = new MultiWindowKeyListener({
     keyCode: Ci.nsIDOMKeyEvent.DOM_VK_R, ctrlKey: true, altKey: true,
     callback: reload
@@ -225,6 +271,8 @@ function startup() {
       originalPrefValues[name] = userValue;
     }
   }
+
+  setPrefs(data.resourceURI);
 }
 function shutdown() {
   listener.stop();
