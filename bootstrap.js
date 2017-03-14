@@ -121,20 +121,22 @@ let getTopLevelWindow = function (window) {
 function reload(event) {
   // We automatically reload the toolbox if we are on a browser tab
   // with a toolbox already opened
-  let top = getTopLevelWindow(event.view);
-  let isBrowser = top.location.href.includes("/browser.xul");
   let reloadToolbox = false;
-  if (isBrowser && top.gBrowser) {
-    // We do not use any devtools code before the call to Loader.jsm reload as
-    // any attempt to use Loader.jsm to load a module will instanciate a new
-    // Loader.
-    let nbox = top.gBrowser.getNotificationBox();
-    reloadToolbox =
-      top.document.getAnonymousElementByAttribute(nbox, "class",
-        "devtools-toolbox-bottom-iframe") ||
-      top.document.getAnonymousElementByAttribute(nbox, "class",
-        "devtools-toolbox-side-iframe") ||
-      Services.wm.getMostRecentWindow("devtools:toolbox");
+  if (event) {
+    let top = getTopLevelWindow(event.view);
+    let isBrowser = top.location.href.includes("/browser.xul");
+    if (isBrowser && top.gBrowser) {
+      // We do not use any devtools code before the call to Loader.jsm reload as
+      // any attempt to use Loader.jsm to load a module will instanciate a new
+      // Loader.
+      let nbox = top.gBrowser.getNotificationBox();
+      reloadToolbox =
+        top.document.getAnonymousElementByAttribute(nbox, "class",
+          "devtools-toolbox-bottom-iframe") ||
+        top.document.getAnonymousElementByAttribute(nbox, "class",
+          "devtools-toolbox-side-iframe") ||
+        Services.wm.getMostRecentWindow("devtools:toolbox");
+    }
   }
   let browserConsole = Services.wm.getMostRecentWindow("devtools:webconsole");
   let reopenBrowserConsole = false;
@@ -273,6 +275,8 @@ function startup(data) {
   }
 
   setPrefs(data.resourceURI);
+
+  reload();
 }
 function shutdown() {
   listener.stop();
@@ -288,6 +292,11 @@ function shutdown() {
   }
 }
 function install() {
-  actionOccurred("reloadAddonInstalled");
+  try {
+    actionOccurred("reloadAddonInstalled");
+  } catch(e) {
+    // When installing on Firefox builds without devtools, telemetry doesn't
+    // work yet and throws.
+  }
 }
 function uninstall() {}
