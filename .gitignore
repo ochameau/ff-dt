@@ -1,2 +1,10 @@
 devtools.xpi
 profile/
+*.pyc
+mochitest/*.zip
+mochitest/*.tar.bz2
+mochitest/artifacts/firefox
+mochitest/artifacts/config/venv
+mochitest/mochitest/browser/
+mochitest/mochitest/tests.json
+mochitest/mochitest/*.log
