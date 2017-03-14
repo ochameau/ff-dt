@@ -1,0 +1,14 @@
+.git
+
+./shared/heapsnapshot
+./bin/
+test/
+tests/
+
+docs/
+
+.*
+*.md
+*.sh
+LICENSE
+README

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+SCRIPT_DIR=$(dirname $0)
+
+. $SCRIPT_DIR/bin/platform.sh
+
+FIREFOX_BIN=$SCRIPT_DIR/bin/artifacts/firefox/firefox-bin
+if [[ $OS == "win32" ]]; then
+  FIREFOX_BIN=$SCRIPT_DIR/bin/artifacts/firefox/firefox.exe
+fi
+
+# Download firefox if not already done
+if [ ! -f $FIREFOX_BIN ]; then
+  echo "Downloading Firefox..."
+  $SCRIPT_DIR/bin/update-firefox.sh
+fi
+
+if [ ! -d $SCRIPT_DIR/profile ]; then
+  $SCRIPT_DIR/bin/create-dev-profile.sh $SCRIPT_DIR/profile
+fi
+
+$FIREFOX_BIN -profile $SCRIPT_DIR/profile --no-remote $@
