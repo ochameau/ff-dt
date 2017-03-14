@@ -9,7 +9,7 @@
 
 const TEST_URI = "http://example.com/browser/devtools/client/webconsole/" +
                  "test/test-console.html?" + Date.now();
-const TEST_FILE = "chrome://mochitests/content/browser/devtools/client/" +
+const TEST_FILE = "chrome://mochitests/content/browser/client/" +
                   "webconsole/test/test-cu-reporterror.js";
 
 const TEST_XHR_ERROR_URI = `http://example.com/404.html?${Date.now()}`;

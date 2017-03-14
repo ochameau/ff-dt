@@ -8,7 +8,7 @@
 // Import the GCLI test helper
 /* import-globals-from ../../commandline/test/helpers.js */
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/commandline/test/helpers.js",
+  "chrome://mochitests/content/browser/client/commandline/test/helpers.js",
   this);
 
 const TEST_URI = "http://example.com/browser/devtools/client/styleeditor/" +

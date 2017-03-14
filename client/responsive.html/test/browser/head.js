@@ -10,25 +10,25 @@
 /* import-globals-from ../../../inspector/test/shared-head.js */
 
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/framework/test/shared-head.js",
+  "chrome://mochitests/content/browser/client/framework/test/shared-head.js",
   this);
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/framework/test/shared-redux-head.js",
+  "chrome://mochitests/content/browser/client/framework/test/shared-redux-head.js",
   this);
 
 // Import the GCLI test helper
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/commandline/test/helpers.js",
+  "chrome://mochitests/content/browser/client/commandline/test/helpers.js",
   this);
 
 // Import helpers registering the test-actor in remote targets
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/shared/test/test-actor-registry.js",
+  "chrome://mochitests/content/browser/client/shared/test/test-actor-registry.js",
   this);
 
 // Import helpers for the inspector that are also shared with others
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/inspector/test/shared-head.js",
+  "chrome://mochitests/content/browser/client/inspector/test/shared-head.js",
   this);
 
 const E10S_MULTI_ENABLED = Services.prefs.getIntPref("dom.ipc.processCount") > 1;

@@ -11,7 +11,7 @@
 // shared-head.js handles imports, constants, and utility functions
 // Load the shared-head file first.
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/framework/test/shared-head.js",
+  "chrome://mochitests/content/browser/client/framework/test/shared-head.js",
   this);
 
 Services.prefs.setBoolPref("devtools.webconsole.new-frontend-enabled", true);
