@@ -6,7 +6,7 @@ By highlighter, we mean anything that DevTools displays on top of the content pa
 
 The most obvious form of highlighter is the box-model highlighter, whose job is to display the 4 box-model regions on top of a given element in the content page, as illustrated in the following screen capture:
 
-![Box-model highlighter](./img/box-model-highlighter-screenshot.png)
+![Box-model highlighter](../resources/box-model-highlighter-screenshot.png)
 
 But there can be a wide variety of highlighters. In particular, highlighters are a pretty good way to give detailed information about:
 
@@ -110,7 +110,7 @@ In this example, the test DIV will be inserted in the page, and will be displaye
 
 ### The AnonymousContent API
 
-In the previous example, the returned `insertedEl` object isn't a DOM node, and it certainly is not `el`. It is a new object, whose type is `AnonymousContent` ([see the WebIDL here](http://mxr.mozilla.org/mozilla-central/source/dom/webidl/AnonymousContent.webidl?force=1)).
+In the previous example, the returned `insertedEl` object isn't a DOM node, and it certainly is not `el`. It is a new object, whose type is `AnonymousContent` ([see the WebIDL here](https://dxr.mozilla.org/mozilla-central/source/dom/webidl/AnonymousContent.webidl)).
 
 Because of the way content is inserted into the page, it isn't wanted to give consumers a direct reference to the inserted DOM node. This is why `document.insertAnonymousContent(el)` actually **clones** `el` and returns a new object whose API lets consumers make changes to the inserted element in a way that never gives back a reference to the inserted DOM node.
 
@@ -142,7 +142,7 @@ The returned object provides the following API:
 
   ### Creating a new highlighter class
 
-A good way to get started is by taking a look at [existing highlighters here](http://mxr.mozilla.org/mozilla-central/source/toolkit/devtools/server/actors/highlighter.js).
+A good way to get started is by taking a look at [existing highlighters here](https://dxr.mozilla.org/mozilla-central/source/devtools/server/actors/highlighters.js#697-727).
 
 Here is some boilerplate code for a new highlighter class:
 
