@@ -4,5 +4,8 @@ resource devtools .
 locale devtools en-US locales/en-US/client/
 locale devtools-shared en-US locales/en-US/shared/
 
+locale devtools it locales/it/client/
+locale devtools-shared it locales/it/shared/
+
 content webide client/webide/content/
 skin webide classic/1.0 client/webide/themes/
