@@ -1,0 +1,124 @@
+
+
+locale devtools ar locales/ar/client/
+locale devtools-shared ar locales/ar/shared/
+
+locale devtools ast locales/ast/client/
+locale devtools-shared ast locales/ast/shared/
+
+locale devtools cs locales/cs/client/
+locale devtools-shared cs locales/cs/shared/
+
+locale devtools de locales/de/client/
+locale devtools-shared de locales/de/shared/
+
+locale devtools en-GB locales/en-GB/client/
+locale devtools-shared en-GB locales/en-GB/shared/
+
+locale devtools en-US locales/en-US/client/
+locale devtools-shared en-US locales/en-US/shared/
+
+locale devtools eo locales/eo/client/
+locale devtools-shared eo locales/eo/shared/
+
+locale devtools es-AR locales/es-AR/client/
+locale devtools-shared es-AR locales/es-AR/shared/
+
+locale devtools es-CL locales/es-CL/client/
+locale devtools-shared es-CL locales/es-CL/shared/
+
+locale devtools es-ES locales/es-ES/client/
+locale devtools-shared es-ES locales/es-ES/shared/
+
+locale devtools es-MX locales/es-MX/client/
+locale devtools-shared es-MX locales/es-MX/shared/
+
+locale devtools fa locales/fa/client/
+locale devtools-shared fa locales/fa/shared/
+
+locale devtools fr locales/fr/client/
+locale devtools-shared fr locales/fr/shared/
+
+locale devtools fy-NL locales/fy-NL/client/
+locale devtools-shared fy-NL locales/fy-NL/shared/
+
+locale devtools gl locales/gl/client/
+locale devtools-shared gl locales/gl/shared/
+
+locale devtools he locales/he/client/
+locale devtools-shared he locales/he/shared/
+
+locale devtools hu locales/hu/client/
+locale devtools-shared hu locales/hu/shared/
+
+locale devtools id locales/id/client/
+locale devtools-shared id locales/id/shared/
+
+locale devtools it locales/it/client/
+locale devtools-shared it locales/it/shared/
+
+locale devtools ja locales/ja/client/
+locale devtools-shared ja locales/ja/shared/
+
+locale devtools ja-JP-mac locales/ja-JP-mac/client/
+locale devtools-shared ja-JP-mac locales/ja-JP-mac/shared/
+
+locale devtools kk locales/kk/client/
+locale devtools-shared kk locales/kk/shared/
+
+locale devtools ko locales/ko/client/
+locale devtools-shared ko locales/ko/shared/
+
+locale devtools lt locales/lt/client/
+locale devtools-shared lt locales/lt/shared/
+
+locale devtools lv locales/lv/client/
+locale devtools-shared lv locales/lv/shared/
+
+locale devtools nb-NO locales/nb-NO/client/
+locale devtools-shared nb-NO locales/nb-NO/shared/
+
+locale devtools nl locales/nl/client/
+locale devtools-shared nl locales/nl/shared/
+
+locale devtools nn-NO locales/nn-NO/client/
+locale devtools-shared nn-NO locales/nn-NO/shared/
+
+locale devtools pl locales/pl/client/
+locale devtools-shared pl locales/pl/shared/
+
+locale devtools pt-BR locales/pt-BR/client/
+locale devtools-shared pt-BR locales/pt-BR/shared/
+
+locale devtools pt-PT locales/pt-PT/client/
+locale devtools-shared pt-PT locales/pt-PT/shared/
+
+locale devtools ru locales/ru/client/
+locale devtools-shared ru locales/ru/shared/
+
+locale devtools sk locales/sk/client/
+locale devtools-shared sk locales/sk/shared/
+
+locale devtools sl locales/sl/client/
+locale devtools-shared sl locales/sl/shared/
+
+locale devtools sv-SE locales/sv-SE/client/
+locale devtools-shared sv-SE locales/sv-SE/shared/
+
+locale devtools th locales/th/client/
+locale devtools-shared th locales/th/shared/
+
+locale devtools tr locales/tr/client/
+locale devtools-shared tr locales/tr/shared/
+
+locale devtools uk locales/uk/client/
+locale devtools-shared uk locales/uk/shared/
+
+locale devtools vi locales/vi/client/
+locale devtools-shared vi locales/vi/shared/
+
+locale devtools zh-CN locales/zh-CN/client/
+locale devtools-shared zh-CN locales/zh-CN/shared/
+
+locale devtools zh-TW locales/zh-TW/client/
+locale devtools-shared zh-TW locales/zh-TW/shared/
