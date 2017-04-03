@@ -19,7 +19,7 @@ registerCleanupFunction(function* () {
   Services.prefs.clearUserPref("devtools.debugger.new-debugger-frontend");
 });
 
-const DEBUGGER_ROOT = "http://example.com/browser/devtools/client/debugger/test/mochitest/";
+const DEBUGGER_ROOT = "http://example.com/browser/client/debugger/test/mochitest/";
 // Empty page
 const PAGE_URL = `${DEBUGGER_ROOT}doc_empty-tab-01.html`;
 const JS_URL = `${URL_ROOT}code_binary_search.js`;

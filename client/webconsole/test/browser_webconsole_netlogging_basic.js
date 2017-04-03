@@ -7,7 +7,7 @@
 
 "use strict";
 
-const TEST_NETWORK_URI = "http://example.com/browser/devtools/client/" +
+const TEST_NETWORK_URI = "http://example.com/browser/client/" +
                          "webconsole/test/test-network.html" + "?_date=" +
                          Date.now();
 

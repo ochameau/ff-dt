@@ -8,11 +8,11 @@
 
 /* import-globals-from ../../inspector/shared/test/head.js */
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/inspector/shared/test/head.js", this);
+  "chrome://mochitests/content/browser/client/inspector/shared/test/head.js", this);
 
-const TEST_BASE = "chrome://mochitests/content/browser/devtools/client/styleeditor/test/";
-const TEST_BASE_HTTP = "http://example.com/browser/devtools/client/styleeditor/test/";
-const TEST_BASE_HTTPS = "https://example.com/browser/devtools/client/styleeditor/test/";
+const TEST_BASE = "chrome://mochitests/content/browser/client/styleeditor/test/";
+const TEST_BASE_HTTP = "http://example.com/browser/client/styleeditor/test/";
+const TEST_BASE_HTTPS = "https://example.com/browser/client/styleeditor/test/";
 const TEST_HOST = "mochi.test:8888";
 
 /**

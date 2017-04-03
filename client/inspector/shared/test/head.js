@@ -7,7 +7,7 @@
 
 // Import the inspector's head.js first (which itself imports shared-head.js).
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/inspector/test/head.js",
+  "chrome://mochitests/content/browser/client/inspector/test/head.js",
   this);
 
 var {CssRuleView} = require("devtools/client/inspector/rules/rules");
@@ -16,9 +16,9 @@ var {getInplaceEditorForSpan: inplaceEditor} =
 const {getColor: getThemeColor} = require("devtools/client/shared/theme");
 
 const TEST_URL_ROOT =
-  "http://example.com/browser/devtools/client/inspector/shared/test/";
+  "http://example.com/browser/client/inspector/shared/test/";
 const TEST_URL_ROOT_SSL =
-  "https://example.com/browser/devtools/client/inspector/shared/test/";
+  "https://example.com/browser/client/inspector/shared/test/";
 const ROOT_TEST_DIR = getRootDirectory(gTestPath);
 const FRAME_SCRIPT_URL = ROOT_TEST_DIR + "doc_frame_script.js";
 const STYLE_INSPECTOR_L10N =

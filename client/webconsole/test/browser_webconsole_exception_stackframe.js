@@ -17,7 +17,7 @@ if (!Services.appinfo.browserTabsRemoteAutostart) {
 function test() {
   let hud;
 
-  const TEST_URI = "http://example.com/browser/devtools/client/webconsole/" +
+  const TEST_URI = "http://example.com/browser/client/webconsole/" +
                    "test/test-exception-stackframe.html";
   const TEST_FILE = TEST_URI.substr(TEST_URI.lastIndexOf("/"));
 

@@ -18,7 +18,7 @@ const {defer} = require("promise");
 const DevToolsUtils = require("devtools/shared/DevToolsUtils");
 const Services = require("Services");
 
-const PATH = "browser/devtools/server/tests/browser/";
+const PATH = "browser/server/tests/browser/";
 const MAIN_DOMAIN = "http://test1.example.org/" + PATH;
 const ALT_DOMAIN = "http://sectest1.example.org/" + PATH;
 const ALT_DOMAIN_SECURED = "https://sectest1.example.org:443/" + PATH;
