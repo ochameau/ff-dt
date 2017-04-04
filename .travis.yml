@@ -1,0 +1,12 @@
+before_script:
+  - git config --global user.name "automation"
+  - git config --global user.email "automation@mozilla.org"
+
+script:
+  - echo "Cloning mozilla-central git repo, this takes quite some time (3GB to download)"
+  - echo "Takes about 6 minutes with good bandwith"
+  - travis_wait 30 git clone --single-branch https://github.com/mozilla/gecko-dev devtools
+  - cd devtools/
+  - ../make-devtools-repo.sh
+  - cd ..
+  - ./update-l10n-branch.sh
