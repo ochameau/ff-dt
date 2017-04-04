@@ -1,6 +1,11 @@
 #!/bin/bash
 
-set -x
+set -e
+
+# Track each command when running on CI
+if [ $CI ]; then
+  set -x
+fi
 
 # Use 7z as zip is not able to fully ignore directories
 # and is going to spent awful amount of time reading .git/gecko folders

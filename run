@@ -2,25 +2,18 @@
 
 set -e
 
-SCRIPT_DIR=$(dirname $0)
+# Do not user SCRIPT_DIR as it would be overwritten by platform.sh
+SCR_DIR=$(dirname $0)
 
-. $SCRIPT_DIR/bin/platform.sh
-
-if [ -z "$FIREFOX_BIN" ]; then
-  FIREFOX_BIN=$SCRIPT_DIR/bin/artifacts/firefox/firefox-bin
-  if [[ $OS == "win32" ]]; then
-    FIREFOX_BIN=$SCRIPT_DIR/bin/artifacts/firefox/firefox.exe
-  fi
-fi
+. $SCR_DIR/bin/platform.sh
 
 # Download firefox if not already done
 if [ ! -f $FIREFOX_BIN ]; then
-  echo "Downloading Firefox..."
-  $SCRIPT_DIR/bin/update-firefox.sh
+  $SCR_DIR/bin/fetch-firefox.sh
 fi
 
-if [ ! -d $SCRIPT_DIR/profile ]; then
-  $SCRIPT_DIR/bin/create-dev-profile.sh $SCRIPT_DIR/profile
+if [ ! -d $SCR_DIR/profile ]; then
+  $SCR_DIR/bin/create-dev-profile.sh $SCR_DIR/profile
 fi
 
-$FIREFOX_BIN -profile $SCRIPT_DIR/profile --no-remote $@
+$FIREFOX_BIN -profile $SCR_DIR/profile --no-remote $@
