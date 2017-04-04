@@ -1,2 +1,8 @@
 devtools.xpi
 profile/
+*.pyc
+bin/artifacts/
+locales.manifest
+locales/others
+node_modules/
+.DS_Store
