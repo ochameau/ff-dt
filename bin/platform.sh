@@ -30,9 +30,28 @@ fi
 
 echo "Firefox branch=$BRANCH"
 
+realpath() {
+    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
 SCRIPT_DIR=$(dirname $0)
+if [ ! -f $SCRIPT_DIR/platform.sh ]; then
+  SCRIPT_DIR=$SCRIPT_DIR/bin/
+fi
+
 mkdir -p $SCRIPT_DIR/deps/firefox/$BRANCH
-TASK_ID_PATH=$(readlink -f $SCRIPT_DIR/deps/firefox/$BRANCH/$PLATFORM)
+TASK_ID_PATH=$(realpath $SCRIPT_DIR/deps/firefox/$BRANCH/$PLATFORM)
 
 mkdir -p $SCRIPT_DIR/artifacts/tests/
-ARTIFACTS_DIR=$(readlink -f $SCRIPT_DIR/artifacts/tests/)
+ARTIFACTS_DIR=$(realpath $SCRIPT_DIR/artifacts/tests/)
+
+if [ -z "$FIREFOX_BIN" ]; then
+  FIREFOX_BIN=$SCRIPT_DIR/artifacts/firefox/firefox-bin
+  if [[ $OS == "win32" ]]; then
+    FIREFOX_BIN=$SCRIPT_DIR/artifacts/firefox/firefox.exe
+  elif [[ $OS == "macosx64" ]]; then
+    FIREFOX_BIN=$SCRIPT_DIR/artifacts/Firefox.app/Contents/MacOS/firefox-bin
+  else
+    FIREFOX_BIN=$SCRIPT_DIR/artifacts/firefox/firefox-bin
+  fi
+fi
