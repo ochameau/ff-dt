@@ -1,2 +1,15 @@
 devtools.xpi
 profile/
+*.pyc
+bin/*.zip
+bin/*.tar.bz2
+bin/artifacts/firefox
+bin/artifacts/config/venv
+bin/mochitest/browser/
+bin/mochitest/tests.json
+bin/mochitest/*.log
+bin/xpcshell/*.log
+bin/xpcshell/xpcshell.ini
+bin/xpcshell/client
+bin/xpcshell/shared
+bin/xpcshell/server
