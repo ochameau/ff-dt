@@ -10,10 +10,6 @@ fi
 
 mkdir -p $ARTIFACTS
 
-# Build the add-on
-./bin/build-xpi.sh
-mv devtools.xpi $ARTIFACTS/
-
 # Setup python environement for tests
 source config.sh
 

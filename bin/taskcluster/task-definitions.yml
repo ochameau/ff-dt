@@ -1,0 +1,149 @@
+build-lint:
+  payload:
+    maxRunTime: 800
+    image: 'node:6'
+    command:
+      - "/bin/bash"
+      - "-cx"
+      - >
+# Checkout the git repo
+        git clone $GITHUB_HEAD_REPO_URL -q --depth 1 --branch $GITHUB_HEAD_REPO_BRANCH devtools &&
+        cd devtools &&
+        git checkout -q $GITHUB_HEAD_REPO_SHA &&
+
+# Build the xpi
+        apt-get update -qy &&
+        apt-get install -qy p7zip-full &&
+        ./bin/build-xpi.sh &&
+        mkdir -p /home/worker/artifacts/public/ &&
+        mv devtools.xpi /home/worker/artifacts/public/ &&
+
+# Lint
+        npm install --silent &&
+        ./lint .
+    artifacts:
+      'public':
+        type: 'directory'
+        path: '/home/worker/artifacts/public/'
+  metadata:
+    name: build-and-lint
+    description: "Run lint checks and build"
+
+linux-opt:
+  dependencies:
+    - build-lint
+  payload:
+    maxRunTime: 18000
+    image: rail/python-test-runner
+    command:
+      - "/bin/bash"
+      - "-cx"
+      - >
+# 'xvfb' for virtual framebuffer (running screen-less)
+# 'python-pip' for xpcshell and mochitest test harnesses
+# 'libgtk' to be able to run firefox
+# 'ttf-liberation' for Inspector test depending on OS fonts
+        apt-get install -qy xvfb python-pip libgtk-3-0 ttf-liberation &&
+        pip install -q --upgrade pip &&
+# psutil is used by mochitest running
+        pip install -q --upgrade psutil &&
+# Setup a virtual framebuffer to fake a screen
+        export DISPLAY=":99.0" &&
+        /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb.pid --make-pidfile --background --exec /usr/bin/Xvfb -- $DISPLAY -nolisten tcp -screen 0 1600x1200x24 &&
+# Clone the repo
+        git clone $GITHUB_HEAD_REPO_URL -q --depth 1 --branch $GITHUB_HEAD_REPO_BRANCH devtools &&
+        cd devtools &&
+        git checkout -q $GITHUB_HEAD_REPO_SHA &&
+# Run the tests
+        export ARTIFACTS=/home/worker/artifacts/public &&
+        ./bin/ci.sh
+    artifacts:
+      'public':
+        type: 'directory'
+        path: '/home/worker/artifacts/public/'
+  metadata:
+    name: devtools-linux-opt
+    description: "Run DevTools tests on Linux"
+
+linux-debug:
+  dependencies:
+    - build-lint
+  payload:
+    maxRunTime: 18000
+    image: rail/python-test-runner
+    command:
+      - "/bin/bash"
+      - "-cx"
+      - >
+        apt-get install -qy p7zip-full xvfb python-pip libgtk-3-0 ttf-liberation &&
+        pip install -q --upgrade pip &&
+        pip install -q --upgrade psutil &&
+        export DISPLAY=":99.0" &&
+        /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb.pid --make-pidfile --background --exec /usr/bin/Xvfb -- $DISPLAY -nolisten tcp -screen 0 1600x1200x24 &&
+        git clone $GITHUB_HEAD_REPO_URL -q --depth 1 --branch $GITHUB_HEAD_REPO_BRANCH devtools &&
+        cd devtools &&
+        git checkout -q $GITHUB_HEAD_REPO_SHA &&
+# This line is the only difference with optimize run
+        export DEBUG=1 &&
+        export ARTIFACTS=/home/worker/artifacts/public &&
+        ./bin/ci.sh
+    artifacts:
+      'public':
+        type: 'directory'
+        path: '/home/worker/artifacts/public/'
+  metadata:
+    name: devtools-linux-debug
+    description: "Run DevTools tests on Linux Debug builds"
+
+windows:
+  dependencies:
+    - build-lint
+# Use a special worker for windows
+  workerType: "win2012r2"
+  payload:
+    maxRunTime: 18000
+    command:
+# Set these Chocolatey folder reference to our work directory to prevent having to run as Admin
+      - "set ChocolateyBinRoot=%CD%\\chocolatey-bin"
+      - "set ChocolateyInstall=%CD%\\chocolatey"
+# Create these Chocolatey folder to prevent warning messages during "choco install" calls
+      - "mkdir chocolatey"
+      - "mkdir chocolatey\\lib"
+      - "mkdir chocolatey\\bin"
+      - "mkdir chocolatey-bin"
+# Install git for its cygwin environment with git support
+      - "choco install git.portable -y -params '\"/GitAndUnixToolsOnPath\"'"
+# Also install 7zip, used for building devtools addon
+      - "choco install 7zip.portable -y"
+      - "set BASH=chocolatey-bin\\git\\bin\\bash.exe"
+# Clone DevTools repo
+      - "%BASH% -c 'git clone %GITHUB_HEAD_REPO_URL% -q devtools; cd devtools; git checkout -q %GITHUB_HEAD_REPO_SHA%'"
+# Register 7zip in PATH before running ci.sh script
+      - "%BASH% -c 'export PATH=\"$PATH:$(readlink -f $(PWD)/chocolatey/bin)\"; export ARTIFACTS=$(readlink -f $(pwd)/public); cd devtools/; ./bin/ci.sh'"
+
+# Be careful about `artifacts` section on Windows, this is different than Linux!
+# See https://docs.taskcluster.net/reference/workers/generic-worker/docs/payload for Windows specifics.
+    artifacts:
+      - type: directory
+        path: "public"
+        expires: "{{ '2 weeks' | $fromNow }}"
+  metadata:
+    name: devtools-windows-opt
+    description: "Run tests of DevTools on windows"
+
+after-checks:
+  dependencies:
+    - windows
+    - linux-opt
+    - linux-debug
+  payload:
+    maxRunTime: 600
+    image: rail/python-test-runner
+    command:
+      - "/bin/bash"
+      - "-cx"
+      - >
+        ls
+  metadata:
+    name: devtools-after-tests
+    description: "Update artifacts if tests succeeded"
