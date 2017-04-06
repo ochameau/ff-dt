@@ -1,10 +1,14 @@
-SCRIPT_DIR=$(dirname $0)
 
-$SCRIPT_DIR/bin/checkout-artifacts.sh
+if [ ! -x ./bin/checkout-artifacts.sh ]; then
+  echo "source config.sh should be executed from devtools root folder"
+  exit
+fi
+
+./bin/checkout-artifacts.sh
 
 # note that we can't on platform.js to get the ARTIFACTS_DIR
 # as importing it from here mess up with its SCRIPT_DIR
-pushd $SCRIPT_DIR/bin/artifacts/tests/config/ > /dev/null
+pushd ./bin/artifacts/tests/config/ > /dev/null
 
 if [ ! -d venv ]; then
 #-z $VIRTUAL_ENV ]; then

@@ -2,7 +2,8 @@
 
 module.exports = {
   "plugins": [
-    "react"
+    "react",
+    "mozilla"
   ],
   "globals": {
     "atob": true,
@@ -34,7 +35,35 @@ module.exports = {
     "WebSocket": true,
     "XMLHttpRequest": true
   },
+	// The html plugin is enabled via a command line option on eslint. To avoid
+	// bad interactions with the xml preprocessor in eslint-plugin-mozilla, we
+	// turn off processing of the html plugin for .xml files.
+	"settings": {
+		"html/xml-extensions": [ ".xhtml" ]
+	},
+	"env": {
+		"es6": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 8,
+	},
   "rules": {
+    // Rules coming from mozilla-central
+    "mozilla/avoid-removeChild": "error",
+    "mozilla/avoid-nsISupportsString-preferences": "error",
+    "mozilla/import-browser-window-globals": "error",
+    "mozilla/import-globals": "warn",
+    "mozilla/no-import-into-var-and-global": "error",
+    "mozilla/no-useless-parameters": "error",
+    "mozilla/no-useless-removeEventListener": "error",
+    "mozilla/use-default-preference-values": "error",
+
+    // Disabling as disabling it from client/.eslintrc.js doesn't work?
+    //"mozilla/use-ownerGlobal": "error",
+
+    // No (!foo in bar) or (!object instanceof Class)
+    "no-unsafe-negation": "error",
+
     // These are the rules that have been configured so far to match the
     // devtools coding style.
 

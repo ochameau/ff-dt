@@ -47,6 +47,7 @@ Run tests
 In order to run test you need some python deps to be installed:
  * virtualenv (sudo pip install virtualenv)
    * pip (sudo easy_install pip)
+ * npm (for lint checks)
 
 From `ff-dt` folder:
 ```
@@ -64,4 +65,11 @@ $ ./test client/inspector/test/browser_inspector_highlighter-01.js
 
 # Run xpcshell test
 $ ./bin/run-xpcshell.sh server/tests/unit/test_add_actors.js
+
+# Run lint checks, for everything
+$ ./lint
+
+# Run lint checks, for a given file or folder
+$ ./lint client/inspector/
+$ ./lint client/inspector/inspector.js
 ```
