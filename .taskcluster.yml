@@ -1,0 +1,87 @@
+version: 0
+metadata:
+  name: firefox devtools
+  description: ''
+  owner: '{{ event.head.user.email }}'
+  source: '{{ event.head.repo.url }}'
+tasks:
+  - provisionerId: '{{ taskcluster.docker.provisionerId }}'
+    workerType: '{{ taskcluster.docker.workerType }}'
+    extra:
+      github:
+        events:
+          - pull_request.synchronize
+          - push
+    payload:
+      maxRunTime: 86400
+      image: rail/python-test-runner
+      command:
+        - "/bin/bash"
+        - "-cx"
+        - >
+          mkdir -p /home/worker/artifacts/public/ &&
+          apt-get install -y sshpass p7zip-full xvfb git python-pip libgtk-3-0 &&
+          git clone {{event.head.repo.url}} repo &&
+          cd repo &&
+          git checkout {{event.head.sha}} &&
+          pip install --upgrade pip &&
+          source config.sh &&
+          export DISPLAY=":99.0" &&
+          /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb.pid --make-pidfile --background --exec /usr/bin/Xvfb -- $DISPLAY -nolisten tcp -screen 0 1600x1200x24 &&
+          ./bin/build-xpi.sh &&
+          mv devtools.xpi /home/worker/artifacts/public/ &&
+          export MOZ_UPLOAD_DIR=/home/worker/artifacts/public/ &&
+          ./test --quiet --screenshot-on-fail 2>&1 | tee mochitests-opt.log &&
+          ./bin/run-xpcshell.sh 2>&1 | tee xpcshell-opt.log &&
+          mv *.log /home/worker/artifacts/public/
+      artifacts:
+        'public':
+          type: 'directory'
+          path: '/home/worker/artifacts/public/'
+    metadata:
+      name: Run tests of firefox optimized
+      description: ''
+      owner: '{{ event.head.user.email }}'
+      source: '{{ event.head.repo.url }}'
+
+  - provisionerId: '{{ taskcluster.docker.provisionerId }}'
+    workerType: '{{ taskcluster.docker.workerType }}'
+    extra:
+      github:
+        events:
+          - pull_request.synchronize
+          - push
+    payload:
+      maxRunTime: 86400
+      image: rail/python-test-runner
+      command:
+        - "/bin/bash"
+        - "-cx"
+        - >
+          mkdir -p /home/worker/artifacts/public/ &&
+          apt-get install -y sshpass p7zip-full xvfb git python-pip libgtk-3-0 &&
+          git clone {{event.head.repo.url}} repo &&
+          cd repo &&
+          git checkout {{event.head.sha}} &&
+          pip install --upgrade pip &&
+          export DEBUG=1 &&
+          source config.sh &&
+          export DISPLAY=":99.0" &&
+          /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb.pid --make-pidfile --background --exec /usr/bin/Xvfb -- $DISPLAY -nolisten tcp -screen 0 1600x1200x24 &&
+          ./bin/build-xpi.sh &&
+          mv devtools.xpi /home/worker/artifacts/public/ &&
+          export MOZ_UPLOAD_DIR=/home/worker/artifacts/public/ &&
+          ./test --quiet --screenshot-on-fail 2>&1 | tee mochitests-debug.log &&
+          ./bin/run-xpcshell.sh 2>&1 | tee xpcshell-debug.log &&
+          mv *.log /home/worker/artifacts/public/
+      artifacts:
+        'public':
+          type: 'directory'
+          path: '/home/worker/artifacts/public/'
+          
+    metadata:
+      name: Run tests of firefox debug
+      description: ''
+      owner: '{{ event.head.user.email }}'
+      source: '{{ event.head.repo.url }}'
+
