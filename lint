@@ -1,0 +1,12 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(dirname $0)
+
+if [ ! -x $SCRIPT_DIR/node_modules/.bin/eslint ]; then
+  echo "You need to setup node environment before linting"
+  echo "Please run:"
+  echo "  npm install"
+  exit
+fi
+
+$SCRIPT_DIR/node_modules/.bin/eslint $@
