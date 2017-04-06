@@ -1,0 +1,50 @@
+version: 0
+metadata:
+  name: devtools
+  description: "Firefox Developer Tools"
+  owner: "{{ event.head.user.email }}"
+  source: "{{ event.head.repo.url }}"
+tasks:
+  - provisionerId: "{{ taskcluster.docker.provisionerId }}"
+    workerType: "{{ taskcluster.docker.workerType }}"
+    retries: 0
+    # scopes and routes are necessary for the decision task
+    # in order to allow creationg tasks using these priviledges
+    scopes:
+      - "queue:route:index.project.devtools.*"
+      - "queue:create-task:aws-provisioner-v1/github-worker"
+      - "queue:create-task:aws-provisioner-v1/win2012r2"
+    routes:
+      - "index.project.devtools.branches.{{ event.head.repo.branch }}.*"
+      - "index.project.devtools.revisions.{{ event.head.sha }}.*"
+    extra:
+      github:
+        events:
+          - pull_request.synchronize
+          - push
+    payload:
+      env:
+        GITHUB_HEAD_USER_EMAIL: "{{ event.head.user.email }}"
+        GITHUB_HEAD_REPO_URL: "{{ event.head.repo.url }}"
+        GITHUB_HEAD_REPO_SHA: "{{ event.head.sha }}"
+        GITHUB_HEAD_REPO_BRANCH: "{{ event.head.repo.branch }}"
+      maxRunTime: 600
+      image: 'node:6'
+# taskclusterProxy is required to implement a decision task
+      features:
+        taskclusterProxy: true
+      command:
+        - "/bin/bash"
+        - "-cx"
+        - >
+          git clone {{event.head.repo.url}} -q --depth 1 --branch {{ event.head.repo.branch }} devtools &&
+          cd devtools &&
+          git checkout -q {{event.head.sha}} &&
+          cd bin/taskcluster &&
+          npm install --silent &&
+          nodejs task_decision.js
+    metadata:
+      name: task-decision
+      description: "Manage tasks"
+      owner: "{{ event.head.user.email }}"
+      source: "{{ event.head.repo.url }}"
