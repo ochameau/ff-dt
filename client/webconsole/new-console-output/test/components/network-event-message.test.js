@@ -17,7 +17,7 @@ const { INDENT_WIDTH } = require("devtools/client/webconsole/new-console-output/
 const { stubPreparedMessages } = require("devtools/client/webconsole/new-console-output/test/fixtures/stubs/index");
 const serviceContainer = require("devtools/client/webconsole/new-console-output/test/fixtures/serviceContainer");
 
-const EXPECTED_URL = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html";
+const EXPECTED_URL = "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html";
 const EXPECTED_STATUS = /\[HTTP\/\d\.\d \d+ [A-Za-z ]+ \d+ms\]/;
 
 describe("NetworkEventMessage component:", () => {

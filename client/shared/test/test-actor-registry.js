@@ -12,7 +12,7 @@
   const defer = require("devtools/shared/defer");
   const { Task } = require("devtools/shared/task");
 
-  const TEST_URL_ROOT = "http://example.com/browser/devtools/client/shared/test/";
+  const TEST_URL_ROOT = "http://example.com/browser/client/shared/test/";
   const ACTOR_URL = TEST_URL_ROOT + "test-actor.js";
 
   // Register a test actor that can operate on the remote document

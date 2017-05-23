@@ -8,7 +8,7 @@
 const DUMMY_1_URL = "http://example.com/";
 const TEST_URL = `${URL_ROOT}doc_page_state.html`;
 const DUMMY_2_URL = "http://example.com/browser/";
-const DUMMY_3_URL = "http://example.com/browser/devtools/";
+const DUMMY_3_URL = "http://example.com/browser/";
 
 add_task(function* () {
   // Load up a sequence of pages:
@@ -82,7 +82,7 @@ add_task(function* () {
   ok(browser.webNavigation.canGoBack, "Going back is allowed");
   ok(!browser.webNavigation.canGoForward, "Going forward is not allowed");
   is(browser.documentURI.spec, DUMMY_3_URL, "documentURI matches page 3");
-  is(browser.contentTitle, "mochitest index /browser/devtools/",
+  is(browser.contentTitle, "mochitest index /browser/",
      "contentTitle matches page 3");
 
   yield closeRDM(tab);

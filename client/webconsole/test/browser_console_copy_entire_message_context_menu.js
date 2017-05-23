@@ -15,7 +15,7 @@ add_task(function* () {
   let outputNode;
   let contextMenu;
 
-  const TEST_URI = "http://example.com/browser/devtools/client/webconsole/test/test-console.html";
+  const TEST_URI = "http://example.com/browser/client/webconsole/test/test-console.html";
 
   const { tab, browser } = yield loadTab(TEST_URI);
   hud = yield openConsole(tab);

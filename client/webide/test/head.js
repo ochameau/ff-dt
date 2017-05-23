@@ -19,7 +19,7 @@ flags.testing = true;
 
 var TEST_BASE;
 if (window.location === "chrome://browser/content/browser.xul") {
-  TEST_BASE = "chrome://mochitests/content/browser/devtools/client/webide/test/";
+  TEST_BASE = "chrome://mochitests/content/browser/client/webide/test/";
 } else {
   TEST_BASE = "chrome://mochitests/content/chrome/devtools/client/webide/test/";
 }

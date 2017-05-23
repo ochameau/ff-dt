@@ -8,7 +8,7 @@
 
 "use strict";
 
-const TEST_URI = "http://tracking.example.org/browser/devtools/client/" +
+const TEST_URI = "http://tracking.example.org/browser/client/" +
                  "webconsole/test/test-trackingprotection-securityerrors.html";
 const LEARN_MORE_URI = "https://developer.mozilla.org/Firefox/Privacy/" +
                        "Tracking_Protection" + DOCS_GA_PARAMS;

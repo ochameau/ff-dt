@@ -12,7 +12,7 @@ add_task(function* () {
 
 function* runTest() {
   const baseURL =
-    "chrome://mochitests/content/browser/devtools/client/sourceeditor/test";
+    "chrome://mochitests/content/browser/client/sourceeditor/test";
   const injectedText = "Script successfully injected!";
 
   let {ed, win} = yield setup(null, {

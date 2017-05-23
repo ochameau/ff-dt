@@ -8,7 +8,7 @@
 "use strict";
 
 const TEST_URI = "data:text/html;charset=utf8,Web Console CSP violation test";
-const TEST_VIOLATION = "https://example.com/browser/devtools/client/" +
+const TEST_VIOLATION = "https://example.com/browser/client/" +
                        "webconsole/test/test_bug_770099_violation.html";
 const CSP_VIOLATION_MSG = "Content Security Policy: The page\u2019s settings " +
                           "blocked the loading of a resource at " +
