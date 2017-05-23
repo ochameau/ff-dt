@@ -50,7 +50,7 @@ if [ -z "$FIREFOX_BIN" ]; then
   if [[ $OS == "win32" ]]; then
     FIREFOX_BIN=$SCRIPT_DIR/artifacts/firefox/firefox.exe
   elif [[ $OS == "macosx64" ]]; then
-    FIREFOX_BIN=$SCRIPT_DIR/artifacts/Nightly.app/Contents/MacOS/firefox-bin
+    FIREFOX_BIN=$SCRIPT_DIR/artifacts/FirefoxNightly.app/Contents/MacOS/firefox-bin
   else
     FIREFOX_BIN=$SCRIPT_DIR/artifacts/firefox/firefox-bin
   fi
