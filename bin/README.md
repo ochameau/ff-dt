@@ -114,6 +114,18 @@ This yml file follows Taskcluster naming. The main difference is the top level o
 Tasks aren't all defined in the root .taskcluster.yml file as we can't define dependencies between tasks.
 (Taskcluster supports a `dependencies` attribute, but it can only contain Task ID. But Task ID is only known at runtime and is random. So that we need the Task Decision Application to support dependencies between the tasks)
 
+# Localization
+
+  A distinct repo `ff-dt-l10n` contains all but en-US locales.
+  `en-US` is in the code repo, in `/locales/en-US` folder.
+  If you want to build a localized add-on, you have to run `./bin/fetch-locales.sh`.
+  It will pull for you the latest locales from `ff-dt-l10n` repo,
+  put them into `/locales/others` folder and modify `/locales.manifest`
+  accordingly to have them correctly registered.
+
+  We have to put localization files out of the code repo as we are using [Pontoon](https://pontoon.mozilla.org/)
+  for localizing the strings. This tool generates tons of changesets and we don't want to trigger
+  all automations for localization modifications, nor do we want to pollute github activity with all these commits.
 
 # This folder content
 
