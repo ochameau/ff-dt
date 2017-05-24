@@ -20,7 +20,7 @@ if [ ! -d $ARTIFACTS_DIR/.git ]; then
   git init $ARTIFACTS_DIR
 fi
 
-ARTIFACTS_LOCATION="https://github.com/ochameau/ff-dt.git artifacts-$BRANCH"
+ARTIFACTS_LOCATION="https://github.com/ochameau/ff-dt-artifacts.git tag-$SHA"
 
 echo "Now downloading test dependencies via git ($ARTIFACTS_LOCATION)."
 
@@ -33,6 +33,6 @@ fi
 
 pushd $ARTIFACTS_DIR > /dev/null
 git fetch $ARTIFACTS_LOCATION $QUIET
-git checkout $SHA
+git checkout FETCH_HEAD
 popd > /dev/null
 

@@ -68,7 +68,7 @@ function downloadAndExtract {
   curl -L -o $PACKAGE $URL
 
   unzip -oq $PACKAGE -d $ARTIFACTS_DIR/ "${@:2}"
-  #rm $PACKAGE
+  rm $PACKAGE
 }
 
 if [[ "$JUST_TEST_BINS" -ne 1 ]]; then

@@ -4,7 +4,7 @@ set -e
 
 # Update to the latest version
 if [ ! -d locales/others ]; then
-  git clone --single-branch --branch l10n https://github.com/ochameau/ff-dt.git locales/others
+  git clone --single-branch --branch master https://github.com/ochameau/ff-dt-l10n.git locales/others
 else
   pushd locales/others
   git fetch origin l10n

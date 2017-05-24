@@ -51,7 +51,9 @@ git add .
 git commit -m "Bump artifacts"
 ARTIFACTS_SHA=$(git rev-parse HEAD)
 echo "Artifacts sha: $ARTIFACTS_SHA"
-git push "https://$GITHUB_TOKEN@github.com/ochameau/ff-dt.git" HEAD:artifacts-$BRANCH -qf
+git tag tag-$ARTIFACTS_SHA $ARTIFACTS_SHA
+# -q is important to not leak the github token
+git push "https://$GITHUB_TOKEN@github.com/ochameau/ff-dt-artifacts.git" "tag-$ARTIFACTS_SHA" -q
 popd
 
 # Updates the artifacts sha for this build in-tree
