@@ -9,7 +9,7 @@
 
 const asyncStorage = require("devtools/shared/async-storage");
 Services.prefs.setCharPref("devtools.devices.url",
-  "http://example.com/browser/devtools/client/responsive.html/test/browser/devices.json");
+  "http://example.com/browser/client/responsive.html/test/browser/devices.json");
 
 registerCleanupFunction(() => {
   Services.prefs.clearUserPref("devtools.devices.url");

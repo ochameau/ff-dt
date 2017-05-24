@@ -5,7 +5,7 @@
 
 "use strict";
 
-const TEST_ROOT = "http://example.com/browser/devtools/client/framework/test/";
+const TEST_ROOT = "http://example.com/browser/client/framework/test/";
 // Empty page
 const PAGE_URL = `${TEST_ROOT}doc_empty-tab-01.html`;
 const JS_URL = `${TEST_ROOT}code_inline_bundle.js`;

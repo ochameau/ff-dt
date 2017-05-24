@@ -10,7 +10,7 @@
 
 const TEST_URI = "data:text/html;charset=utf-8,Web Console HSTS invalid " +
                  "header test";
-const SJS_URL = "https://example.com/browser/devtools/client/webconsole/" +
+const SJS_URL = "https://example.com/browser/client/webconsole/" +
                 "test/test_hsts-invalid-headers.sjs";
 const LEARN_MORE_URI = "https://developer.mozilla.org/docs/Web/HTTP/Headers/" +
                        "Strict-Transport-Security" + DOCS_GA_PARAMS;

@@ -5,7 +5,7 @@
 
 // Tests that the cookie command works for host with a port specified
 
-const TEST_URI = "http://mochi.test:8888/browser/devtools/client/commandline/" +
+const TEST_URI = "http://mochi.test:8888/browser/client/commandline/" +
                  "test/browser_cmd_cookie.html";
 
 function test() {

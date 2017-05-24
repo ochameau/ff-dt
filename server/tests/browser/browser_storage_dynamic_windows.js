@@ -5,7 +5,7 @@
 "use strict";
 
 const {StorageFront} = require("devtools/shared/fronts/storage");
-Services.scriptloader.loadSubScript("chrome://mochitests/content/browser/devtools/server/tests/browser/storage-helpers.js", this);
+Services.scriptloader.loadSubScript("chrome://mochitests/content/browser/server/tests/browser/storage-helpers.js", this);
 
 const beforeReload = {
   cookies: {
@@ -102,11 +102,11 @@ function testAddIframe(front) {
         "https://sectest1.example.org": [
           getCookieId("cs2", ".example.org", "/"),
           getCookieId("sc1", "sectest1.example.org",
-                      "/browser/devtools/server/tests/browser/")
+                      "/browser/server/tests/browser/")
         ],
         "http://sectest1.example.org": [
           getCookieId("sc1", "sectest1.example.org",
-                      "/browser/devtools/server/tests/browser/")
+                      "/browser/server/tests/browser/")
         ]
       },
       indexedDB: {

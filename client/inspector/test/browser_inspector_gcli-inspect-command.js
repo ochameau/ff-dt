@@ -8,7 +8,7 @@
 
 // Import the GCLI test helper
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/commandline/test/helpers.js",
+  "chrome://mochitests/content/browser/client/commandline/test/helpers.js",
   this);
 
 // Testing that the gcli 'inspect' command works as it should.

@@ -8,7 +8,7 @@
 "use strict";
 
 const TEST_NETWORK_REQUEST_URI =
-  "http://example.com/browser/devtools/client/webconsole/test/" +
+  "http://example.com/browser/client/webconsole/test/" +
   "test-network-request.html";
 
 add_task(function* () {

@@ -32,7 +32,7 @@ let ReactDOM = browserRequire("devtools/client/shared/vendor/react-dom");
 let React = browserRequire("devtools/client/shared/vendor/react");
 var TestUtils = React.addons.TestUtils;
 
-var EXAMPLE_URL = "http://example.com/browser/browser/devtools/shared/test/";
+var EXAMPLE_URL = "http://example.com/browser/browser/shared/test/";
 
 function forceRender(comp) {
   return setState(comp, {})

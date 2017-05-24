@@ -19,7 +19,7 @@ stubPreparedMessages.set("GET request", new NetworkEventMessage({
   "level": "log",
   "isXHR": false,
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET"
   },
   "response": {},
@@ -35,7 +35,7 @@ stubPreparedMessages.set("GET request eventTimings", new NetworkEventMessage({
   "level": "log",
   "isXHR": false,
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET",
     "headersSize": 489
   },
@@ -60,7 +60,7 @@ stubPreparedMessages.set("XHR GET request", new NetworkEventMessage({
   "level": "log",
   "isXHR": true,
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET"
   },
   "response": {},
@@ -76,7 +76,7 @@ stubPreparedMessages.set("XHR GET request eventTimings", new NetworkEventMessage
   "level": "log",
   "isXHR": true,
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET",
     "headersSize": 489
   },
@@ -101,7 +101,7 @@ stubPreparedMessages.set("XHR POST request", new NetworkEventMessage({
   "level": "log",
   "isXHR": true,
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "POST"
   },
   "response": {},
@@ -117,7 +117,7 @@ stubPreparedMessages.set("XHR POST request eventTimings", new NetworkEventMessag
   "level": "log",
   "isXHR": true,
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "POST",
     "headersSize": 509
   },
@@ -145,16 +145,16 @@ stubPackets.set("GET request", {
   "discardResponseBody": true,
   "startedDateTime": "2017-02-13T21:40:56.850Z",
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET"
   },
   "isXHR": false,
   "cause": {
     "type": "img",
-    "loadingDocumentUri": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+    "loadingDocumentUri": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
     "stacktrace": [
       {
-        "filename": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+        "filename": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
         "lineNumber": 3,
         "columnNumber": 1,
         "functionName": "triggerPacket",
@@ -199,17 +199,17 @@ stubPackets.set("GET request eventTimings", {
     "discardResponseBody": false,
     "startedDateTime": "2017-02-12T19:19:35.277Z",
     "request": {
-      "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+      "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
       "method": "GET",
       "headersSize": 489
     },
     "isXHR": false,
     "cause": {
       "type": "img",
-      "loadingDocumentUri": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+      "loadingDocumentUri": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
       "stacktrace": [
         {
-          "filename": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+          "filename": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
           "lineNumber": 3,
           "columnNumber": 1,
           "functionName": "triggerPacket",
@@ -264,16 +264,16 @@ stubPackets.set("XHR GET request", {
   "discardResponseBody": true,
   "startedDateTime": "2017-02-13T21:40:57.746Z",
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET"
   },
   "isXHR": true,
   "cause": {
     "type": "xhr",
-    "loadingDocumentUri": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+    "loadingDocumentUri": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
     "stacktrace": [
       {
-        "filename": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+        "filename": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
         "lineNumber": 4,
         "columnNumber": 1,
         "functionName": "triggerPacket",
@@ -318,17 +318,17 @@ stubPackets.set("XHR GET request eventTimings", {
     "discardResponseBody": false,
     "startedDateTime": "2017-02-12T19:19:39.824Z",
     "request": {
-      "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+      "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
       "method": "GET",
       "headersSize": 489
     },
     "isXHR": true,
     "cause": {
       "type": "xhr",
-      "loadingDocumentUri": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+      "loadingDocumentUri": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
       "stacktrace": [
         {
-          "filename": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+          "filename": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
           "lineNumber": 4,
           "columnNumber": 1,
           "functionName": "triggerPacket",
@@ -383,16 +383,16 @@ stubPackets.set("XHR POST request", {
   "discardResponseBody": true,
   "startedDateTime": "2017-02-13T21:40:58.414Z",
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "POST"
   },
   "isXHR": true,
   "cause": {
     "type": "xhr",
-    "loadingDocumentUri": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+    "loadingDocumentUri": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
     "stacktrace": [
       {
-        "filename": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+        "filename": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
         "lineNumber": 4,
         "columnNumber": 1,
         "functionName": "triggerPacket",
@@ -437,17 +437,17 @@ stubPackets.set("XHR POST request eventTimings", {
     "discardResponseBody": false,
     "startedDateTime": "2017-02-12T19:19:43.220Z",
     "request": {
-      "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+      "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
       "method": "POST",
       "headersSize": 509
     },
     "isXHR": true,
     "cause": {
       "type": "xhr",
-      "loadingDocumentUri": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+      "loadingDocumentUri": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
       "stacktrace": [
         {
-          "filename": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+          "filename": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
           "lineNumber": 4,
           "columnNumber": 1,
           "functionName": "triggerPacket",
