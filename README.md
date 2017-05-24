@@ -73,3 +73,7 @@ $ ./lint
 $ ./lint client/inspector/
 $ ./lint client/inspector/inspector.js
 ```
+
+
+A lot more information is available about the tooling, CI, scripts, tooling, repos, branches
+in `bin/README.md` file.
