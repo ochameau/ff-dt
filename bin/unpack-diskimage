@@ -29,7 +29,7 @@ trap "{ if [ -d $MOUNTPOINT ]; then hdiutil detach $MOUNTPOINT -force; rm -rdfv 
 
 mkdir -p $MOUNTPOINT
 
-hdiutil attach -verbose -noautoopen -mountpoint $MOUNTPOINT "$DMG_PATH"
+hdiutil attach -verbose -nobrowse -noautoopen -mountpoint $MOUNTPOINT "$DMG_PATH"
 # Wait for files to show up
 # hdiutil uses a helper process, diskimages-helper, which isn't always done its
 # work by the time hdiutil exits. So we wait until something shows up in the
