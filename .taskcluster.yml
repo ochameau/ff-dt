@@ -1,4 +1,7 @@
 version: 0
+# Allow these tasks to run against any pull request,
+# i.e. even people that aren't part of this repo team.
+allowPullRequests: public
 metadata:
   name: devtools
   description: "Firefox Developer Tools"
