@@ -8,7 +8,7 @@
 "use strict";
 
 const TEST_URI = "data:text/html;charset=utf8,Web Console mixed content test";
-const TEST_HTTPS_URI = "https://example.com/browser/devtools/client/" +
+const TEST_HTTPS_URI = "https://example.com/browser/client/" +
                        "webconsole/test/test-bug-737873-mixedcontent.html";
 const LEARN_MORE_URI = "https://developer.mozilla.org/docs/Web/Security/" +
                        "Mixed_content";

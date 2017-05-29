@@ -15,7 +15,7 @@ const {
 } = require("devtools/client/memory/actions/snapshot");
 const { changeView } = require("devtools/client/memory/actions/view");
 
-const TEST_URL = "http://example.com/browser/devtools/client/memory/test/browser/doc_steady_allocation.html";
+const TEST_URL = "http://example.com/browser/client/memory/test/browser/doc_steady_allocation.html";
 
 function waitUntilFocused(store, node) {
   return waitUntilState(store, state =>

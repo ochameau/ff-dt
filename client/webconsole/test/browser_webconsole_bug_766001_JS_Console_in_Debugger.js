@@ -8,7 +8,7 @@
 
 "use strict";
 
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/test" +
+const TEST_URI = "http://example.com/browser/client/webconsole/test" +
                  "/test-bug-766001-js-console-links.html";
 
 // Force the new debugger UI, in case this gets uplifted with the old

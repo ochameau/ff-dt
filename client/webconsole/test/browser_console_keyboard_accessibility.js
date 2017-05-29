@@ -8,7 +8,7 @@
 "use strict";
 
 add_task(function* () {
-  const TEST_URI = "http://example.com/browser/devtools/client/webconsole/" +
+  const TEST_URI = "http://example.com/browser/client/webconsole/" +
                    "test/test-console.html";
 
   yield loadTab(TEST_URI);

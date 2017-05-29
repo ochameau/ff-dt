@@ -9,7 +9,7 @@ const { takeSnapshotAndCensus } = require("devtools/client/memory/actions/snapsh
 const { viewState } = require("devtools/client/memory/constants");
 const { changeView } = require("devtools/client/memory/actions/view");
 
-const TEST_URL = "http://example.com/browser/devtools/client/memory/test/browser/doc_steady_allocation.html";
+const TEST_URL = "http://example.com/browser/client/memory/test/browser/doc_steady_allocation.html";
 
 function checkCells(cells) {
   ok(cells.length > 1, "Should have found some");

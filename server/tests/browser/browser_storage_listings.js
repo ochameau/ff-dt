@@ -5,7 +5,7 @@
 "use strict";
 
 const {StorageFront} = require("devtools/shared/fronts/storage");
-Services.scriptloader.loadSubScript("chrome://mochitests/content/browser/devtools/server/tests/browser/storage-helpers.js", this);
+Services.scriptloader.loadSubScript("chrome://mochitests/content/browser/server/tests/browser/storage-helpers.js", this);
 
 const storeMap = {
   cookies: {
@@ -52,7 +52,7 @@ const storeMap = {
       {
         name: "sc1",
         value: "foobar",
-        path: "/browser/devtools/server/tests/browser/",
+        path: "/browser/server/tests/browser/",
         host: "sectest1.example.org",
         expires: 0,
         isDomain: false,
@@ -82,7 +82,7 @@ const storeMap = {
       {
         name: "sc1",
         value: "foobar",
-        path: "/browser/devtools/server/tests/browser/",
+        path: "/browser/server/tests/browser/",
         host: "sectest1.example.org",
         expires: 0,
         isDomain: false,
