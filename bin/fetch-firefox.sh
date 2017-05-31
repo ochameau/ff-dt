@@ -2,8 +2,6 @@
 
 set -e
 
-echo "Downloading Firefox"
-
 # Track each command when running on CI
 if [ $CI ]; then
   set -x
@@ -13,6 +11,8 @@ SCRIPT_DIR=$(dirname $0)
 
 . $SCRIPT_DIR/platform.sh
 
+# This script doesn't try to check whether firefox is already downloaded or not
+# it removes any pre-existing version and download a fresh one
 rm -rf $SCRIPT_DIR/artifacts/firefox
 mkdir -p $SCRIPT_DIR/artifacts/
 
@@ -68,7 +68,6 @@ elif [[ $OS == "macosx64" ]]; then
   if [ ! -d $SCRIPT_DIR/artifacts/Firefox.app ]; then
     mv $SCRIPT_DIR/artifacts/*.app $SCRIPT_DIR/artifacts/Firefox.app
   fi
-  $SCRIPT_DIR/unpack-diskimage $PACKAGE $SCRIPT_DIR/dmg-mount $SCRIPT_DIR/artifacts/
 # The dmg includes a symlink to /Applications called " ", as well as some hidden files
   rm "$SCRIPT_DIR/artifacts/ "
   rm -rf $SCRIPT_DIR/artifacts/.background/
@@ -76,4 +75,3 @@ elif [[ $OS == "macosx64" ]]; then
 else
   tar jxf $PACKAGE -C $SCRIPT_DIR/artifacts/
 fi
-#rm $PACKAGE

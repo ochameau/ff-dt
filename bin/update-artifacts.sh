@@ -31,7 +31,7 @@ function updatePlatform {
   # Updates the Task ID for this platform in-tree
   echo $TASK_ID > $TASK_ID_PATH
   echo "Fetch artifacts for $PLATFORM"
-  $SCRIPT_DIR/fetch-artifacts.sh $ARTIFACTS_DIR $TASK_ID $PLATFORM $OS
+  $SCRIPT_DIR/fetch-test-artifacts.sh $ARTIFACTS_DIR $TASK_ID $PLATFORM $OS
 }
 
 # Download artifacts for all platforms and mode
