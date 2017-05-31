@@ -17,6 +17,8 @@ tasks:
       - "queue:route:index.project.devtools.*"
       - "queue:create-task:aws-provisioner-v1/github-worker"
       - "queue:create-task:aws-provisioner-v1/win2012r2"
+      - "github:create-status:ochameau/ff-dt"
+      - "github:create-comment:ochameau/ff-dt"
     routes:
       - "index.project.devtools.branches.{{ event.head.repo.branch }}.*"
       - "index.project.devtools.revisions.{{ event.head.sha }}.*"
@@ -65,6 +67,9 @@ tasks:
       - "queue:route:index.project.devtools.*"
       - "queue:create-task:aws-provisioner-v1/github-worker"
       - "queue:create-task:aws-provisioner-v1/win2012r2"
+      - "github:create-status:ochameau/ff-dt"
+      - "github:create-comment:ochameau/ff-dt"
+      - "secrets:get:repo:github.com/ochameau/ff-dt:branch:master"
     routes:
       - "index.project.devtools.branches.{{ event.head.repo.branch }}.*"
       - "index.project.devtools.revisions.{{ event.head.sha }}.*"
