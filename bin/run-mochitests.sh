@@ -27,9 +27,9 @@ if [ ! -d $MOCHITEST_DIR ]; then
   $SCRIPT_DIR/checkout-artifacts.sh
 fi
 
-# Create the browser folder runtests.py expects
-# it should contain browser-chrome.ini manifest
-# itself referencing other test manifest with relative paths
+# Create the browser folder.
+# runtests.py expects it should contain a browser-chrome.ini manifest
+# itself referencing other test manifests with relative paths.
 # Use symlink to make that happen
 rm -rf $MOCHITEST_DIR/browser
 mkdir -p $MOCHITEST_DIR/browser
@@ -51,8 +51,16 @@ if [[ "$DEBUG" -eq 1 ]]; then
   DEBUG_BOOL=true
 fi
 
+# Create a mozinfo file out of the bin/mozinfo template which contains template strings with capital cases.
 MOZINFO=$(mktemp)
-sed -e s/SUFFIX/$BIN_SUFFIX/ -e s/DEBUG/$DEBUG_BOOL/ -e s/BITS/64/ -e s/PLATFORM/$OS/ -e s/OS/$OS/ -e s/TOOLKIT/gtk3/ -e s/MODE/$MODE/ $SCRIPT_DIR/mozinfo > $MOZINFO
+sed -e s/SUFFIX/$BIN_SUFFIX/ \
+    -e s/DEBUG/$DEBUG_BOOL/ \
+    -e s/BITS/64/ \
+    -e s/PLATFORM/$OS/ \
+    -e s/OS/$OS/ \
+    -e s/TOOLKIT/gtk3/ \
+    -e s/MODE/$MODE/ \
+    $SCRIPT_DIR/mozinfo > $MOZINFO
 
 # Hook the extension into the test environment
 mkdir -p $FIREFOX_DIR/browser/extensions/
@@ -65,4 +73,13 @@ if [[ $OS == "macosx64" ]]; then
 fi
 
 # Run python script to run tests
-python $MOCHITEST_DIR/runtests.py --appname $FIREFOX_BIN --xre-path $XRE_PATH -f browser --utility-path $ARTIFACTS_DIR/bin/$PLATFORM/ --certificate-path $ARTIFACTS_DIR/certs/ --testing-modules-dir $ARTIFACTS_DIR/modules/ --extra-mozinfo-json $MOZINFO --subsuite devtools --extra-mozinfo-json $MOZINFO $@
+python $MOCHITEST_DIR/runtests.py \
+  --appname $FIREFOX_BIN \
+  --xre-path $XRE_PATH \
+  -f browser \
+  --utility-path $ARTIFACTS_DIR/bin/$PLATFORM/ \
+  --certificate-path $ARTIFACTS_DIR/certs/ \
+  --testing-modules-dir $ARTIFACTS_DIR/modules/ \
+  --extra-mozinfo-json $MOZINFO \
+  --subsuite devtools \
+  $@

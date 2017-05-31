@@ -7,13 +7,13 @@ fi
 ## Check on what operating system we are running
 if [[ "$OS" != "win32" && "$OS" != "linux64" && "$OS" != "macosx64" ]]; then
   SYS=$(uname -a)
-# Cygwin, mingw32 or ubuntu for windows
-  if [[ "$SYS" =~ "CYGWIN" || "$SYS" =~ "MINGW32_NT" || "$SYS" =~ "MINGW64_NT" ]] || grep -q Microsoft /proc/version ; then
-    OS=win32
-  elif [[ "$SYS" =~ "Linux" ]]; then
+  if [[ "$SYS" =~ "Linux" ]]; then
     OS=linux64
   elif [[ "$SYS" =~ "Darwin" ]]; then
     OS=macosx64
+# Cygwin, mingw32 or ubuntu for windows
+  elif [[ "$SYS" =~ "CYGWIN" || "$SYS" =~ "MINGW32_NT" || "$SYS" =~ "MINGW64_NT" ]] || grep -q Microsoft /proc/version ; then
+    OS=win32
   else
     echo "Unable to detect operating system type"
     echo "uname: $SYS"

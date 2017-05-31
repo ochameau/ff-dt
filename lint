@@ -4,8 +4,8 @@ SCRIPT_DIR=$(dirname $0)
 
 if [ ! -x $SCRIPT_DIR/node_modules/.bin/eslint ]; then
   echo "You need to setup node environment before linting"
-  echo "Please run:"
-  echo "  npm install"
+  echo "Please run the following command from devtools root folder:"
+  echo " $ npm install"
   exit
 fi
 

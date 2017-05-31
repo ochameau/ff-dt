@@ -57,7 +57,14 @@ fi
 
 # Create a mozinfo file out of the `bin/mozinfo` template which contains template strings with capital cases.
 MOZINFO=$(mktemp)
-sed -e s/SUFFIX/$BIN_SUFFIX/ -e s/DEBUG/$DEBUG_BOOL/ -e s/BITS/64/ -e s/PLATFORM/$OS/ -e s/OS/$OS/ -e s/TOOLKIT/gtk3/ -e s/MODE/$MODE/ $SCRIPT_DIR/mozinfo > $MOZINFO
+sed -e s/SUFFIX/$BIN_SUFFIX/ \
+    -e s/DEBUG/$DEBUG_BOOL/ \
+    -e s/BITS/64/ \
+    -e s/PLATFORM/$OS/ \
+    -e s/OS/$OS/ \
+    -e s/TOOLKIT/gtk3/ \
+    -e s/MODE/$MODE/ \
+    $SCRIPT_DIR/mozinfo > $MOZINFO
 
 # Mac has a specific "xre" path, which is not where firefox binary is (Contents/Resources/ instead of Contents/MacOS)
 XRE_PATH=$FIREFOX_DIR/
@@ -66,4 +73,11 @@ if [[ $OS == "macosx64" ]]; then
 fi
 
 # Run python script to run tests
-python $XPCSHELL_DIR/runxpcshelltests.py --xre-path $XRE_PATH --utility-path $BIN_DIR/ --testing-modules-dir $ARTIFACTS_DIR/modules/ --xpcshell $BIN_DIR/xpcshell$BIN_PREFIX --build-info-json $MOZINFO --manifest $XPCSHELL_DIR/xpcshell.ini $@
+python $XPCSHELL_DIR/runxpcshelltests.py \
+  --xre-path $XRE_PATH \
+  --utility-path $BIN_DIR/ \
+  --testing-modules-dir $ARTIFACTS_DIR/modules/ \
+  --xpcshell $BIN_DIR/xpcshell$BIN_PREFIX \
+  --build-info-json $MOZINFO \
+  --manifest $XPCSHELL_DIR/xpcshell.ini \
+  $@
