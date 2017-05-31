@@ -24,6 +24,20 @@ function createTask(name, yml) {
       typeof(yml.metadata.description) != "string") {
     throw new Error("Task defined in yml file have to define the `metadata` object with name and description attriutes");
   }
+  if (yml.scopes && !Array.isArray(yml.scopes)) {
+    throw new Error("'scopes' in task defined in yml file should be an array");
+  }
+  if (yml["only-branches"]) {
+    let branches = yml["only-branches"];
+    if (!Array.isArray(branches)) {
+      throw new Error("'only-branches' in task defined in yml file should be an array");
+    }
+    let branch = process.env.GITHUB_HEAD_REPO_BRANCH;
+    if (!branches.includes(branch)) {
+      console.log("Prevent running", name, "task on branch", branch, "by following only-branches attribute");
+      return;
+    }
+  }
 
   let dependencies = [process.env.TASK_ID];
 
@@ -77,6 +91,8 @@ function createTask(name, yml) {
       "index.project.devtools.branches." + process.env.GITHUB_HEAD_REPO_BRANCH + "." + name,
       "index.project.devtools.branches." + process.env.GITHUB_HEAD_REPO_SHA + "." + name
     ],
+
+    scopes:         yml.scopes,
 
     payload:        yml.payload,
 
