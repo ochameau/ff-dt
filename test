@@ -1,8 +1,16 @@
 #!/bin/bash
+
+# When calling `source config.sh`, it eventually ends up calling
+# `virtualenv` which ends up setting `$VIRTUAL_ENV` variable to refer
+# to the venv folder it uses for pulling python dependencies.
+# So it is a handy way to check if it has been called or not.
 if [ -z $VIRTUAL_ENV ]; then
   echo "In order to run test, you need to setup python environment."
   echo "Please run the following command from devtools root folder:"
   echo " $ source config.sh"
+  echo ""
+  echo "For more information about virtualenv, please visit:"
+  echo "  https://virtualenv.pypa.io/en/stable/userguide/"
   exit
 fi
 

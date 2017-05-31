@@ -1,6 +1,12 @@
 #!/bin/bash
 
+# This script allows to build a localized version of the add-on.
+# It checkouts the dedicated l10n repo where all strings are translated by localizers
+# and updates locales.manifest which is going to reference every single locale
+
 set -e
+
+echo "Cloning all locales to locales/others/ and regenerates locales.manifest"
 
 # Update to the latest version
 if [ ! -d locales/others ]; then
