@@ -131,19 +131,33 @@ windows:
     name: devtools-windows-opt
     description: "Run tests of DevTools on windows"
 
-after-checks:
+sign:
+# Only sign'n release the addon if linux test pass
+# debug is still unstable as well as windows
   dependencies:
-    - windows
     - linux-opt
-    - linux-debug
+# This can only be done for master branch
+  only-branches:
+    - master
+  scopes:
+    - "github:create-status:ochameau/ff-dt"
+    - "github:create-comment:ochameau/ff-dt"
+    - "secrets:get:repo:github.com/ochameau/ff-dt:branch:master"
   payload:
     maxRunTime: 600
     image: rail/python-test-runner
+# taskclusterProxy is required to query TC for fetching secret and create commit status message
+    features:
+      taskclusterProxy: true
     command:
       - "/bin/bash"
       - "-cx"
       - >
-        ls
+        git clone $GITHUB_HEAD_REPO_URL -q --depth 1 --branch $GITHUB_HEAD_REPO_BRANCH devtools &&
+        cd devtools &&
+        git checkout -q $GITHUB_HEAD_REPO_SHA &&
+        apt-get install -qy jq openssl p7zip-full bc unzip curl awscli &&
+        ./bin/release.sh
   metadata:
-    name: devtools-after-tests
-    description: "Update artifacts if tests succeeded"
+    name: sign
+    description: "Sign the add-on and release it if test succeeded"
