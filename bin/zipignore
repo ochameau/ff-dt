@@ -1,6 +1,9 @@
 .git
 
+# This folder is only used when loading tools in a tab,
+# otherwise shared/platform/chrome is used in productiong codepath.
 shared/platform/content/
+
 bin/
 shim/
 

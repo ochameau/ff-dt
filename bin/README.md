@@ -59,7 +59,7 @@ We pull all the necessary files via mozilla-central CI, from three packages:
   From which we retrieve mochitests python application sources
   (ends up in `bin/artifacts/tests/mochitest/`)
 
-`bin/fetch-artifacts.sh` does that work of downloading all these zip files
+`bin/fetch-test-artifacts.sh` does that work of downloading all these zip files
 and picking the necessary files.
 
 `bin/updates-artifacts.sh` script is then pushing the necessary artifacts
