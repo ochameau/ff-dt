@@ -28,8 +28,13 @@ export AMO_SECRET=$(curl ${secret_url} | jq ".secret.AMO_SECRET" -r)
 # Append a unique (at least if we don't push twice per minute to master branch...)
 # version prefix to the addon id as AMO requires new addon version for every upload
 # and also require it to be greater.
+# Note the `.` between the date and the time.
+# It is important as Services.vc, the module used by the add-on manager to compare
+# version strings ignores number that are too big! So split the date and the time.
+# (Services.vc.compare("44.0a1.201706030109", "44.0a1.201706031651") return 0 which means
+# the versions are identical...
 # /!\ this changes install.rdf without commiting it.
-VERSION_SUFFIX=$(date +%Y%m%d%H%M)
+VERSION_SUFFIX=$(date +%Y%m%d.%H%M)
 echo "VERSION_SUFFIX=$VERSION_SUFFIX"
 sed -i -E 's/em:version=\"([0-9.ab-]+)\"/em:version=\"\1.'$VERSION_SUFFIX'\"/g' $SCRIPT_DIR/../install.rdf
 
@@ -48,7 +53,8 @@ export AWS_ACCESS_KEY_ID=$(curl ${secret_url} | jq ".secret.AWS_ACCESS_KEY_ID" -
 export AWS_SECRET_ACCESS_KEY=$(curl ${secret_url} | jq ".secret.AWS_SECRET_ACCESS_KEY" -r)
 S3_ROOT_PATH="/pub/labs/devtools/master"
 S3_BASE_URL="s3://net-mozaws-prod-delivery-contrib$S3_ROOT_PATH"
-aws s3 cp devtools-signed.xpi $S3_BASE_URL/devtools.xpi
+# Also reduce the cache of the xpi as we always use the same file name...
+aws s3 cp --cache-control max-age=3600 devtools-signed.xpi $S3_BASE_URL/devtools.xpi
 ADDON_URL="https://archive.mozilla.org/pub/labs/devtools/master/devtools.xpi"
 
 # Feth the final addon version from install.rdf
