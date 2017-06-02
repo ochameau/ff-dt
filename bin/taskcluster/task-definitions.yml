@@ -32,9 +32,14 @@ build-lint:
 linux-opt:
   dependencies:
     - build-lint
+  scopes:
+    - "github:create-comment:ochameau/ff-dt"
   payload:
     maxRunTime: 18000
     image: rail/python-test-runner
+# taskclusterProxy is required to query TC for creating pull request comment
+    features:
+      taskclusterProxy: true
     command:
       - "/bin/bash"
       - "-cx"
@@ -68,9 +73,14 @@ linux-opt:
 linux-debug:
   dependencies:
     - build-lint
+  scopes:
+    - "github:create-comment:ochameau/ff-dt"
   payload:
     maxRunTime: 18000
     image: rail/python-test-runner
+# taskclusterProxy is required to query TC for creating pull request comment
+    features:
+      taskclusterProxy: true
     command:
       - "/bin/bash"
       - "-cx"
