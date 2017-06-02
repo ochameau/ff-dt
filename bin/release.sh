@@ -16,6 +16,8 @@ set +x
 
 SCRIPT_DIR=$(dirname $0)
 
+echo "# Release the add-on: sign-it and push it to S3 while updating update.rdf"
+
 # Import AMO credentials from taskcluster secrets
 # only master branch can access them to prevent unauthorized contributors
 # accessing them via pull requests
@@ -28,7 +30,8 @@ export AMO_SECRET=$(curl ${secret_url} | jq ".secret.AMO_SECRET" -r)
 # and also require it to be greater.
 # /!\ this changes install.rdf without commiting it.
 VERSION_SUFFIX=$(date +%Y%m%d%H%M)
-sed -i -E 's/em:version=\"([0-9.ab-]+)\"/em:version=\"\1.'$VERSION_SUFFIX'\"/g' install.rdf
+echo "VERSION_SUFFIX=$VERSION_SUFFIX"
+sed -i -E 's/em:version=\"([0-9.ab-]+)\"/em:version=\"\1.'$VERSION_SUFFIX'\"/g' $SCRIPT_DIR/../install.rdf
 
 $SCRIPT_DIR/build-xpi.sh
 # Note that sign.sh is downloading the xpi from AMO
@@ -47,6 +50,15 @@ S3_ROOT_PATH="/pub/labs/devtools/master"
 S3_BASE_URL="s3://net-mozaws-prod-delivery-contrib$S3_ROOT_PATH"
 aws s3 cp devtools-signed.xpi $S3_BASE_URL/devtools.xpi
 ADDON_URL="https://archive.mozilla.org/pub/labs/devtools/master/devtools.xpi"
+
+# Feth the final addon version from install.rdf
+# -E is for using regexp (not only strings) and -o is for printing only the pattern that matches
+VERSION=$(grep -E "em:version" $SCRIPT_DIR/../install.rdf | grep -oE "([0-9.ab-]+)")
+echo "VERSION=$VERSION"
+
+# Upload also the update.rdf file to S3
+sed -e "s#@@UPDATE_LINK@@#$ADDON_URL#;s#@@ADDON_VERSION@@#$VERSION#" $SCRIPT_DIR/template-update.rdf > update.rdf
+aws s3 cp --cache-control max-age=3600 update.rdf $S3_BASE_URL/update.rdf
 
 # Post a commit status message to github with a link to the signed add-on
 URL="http://taskcluster/github/v1/repository/ochameau/ff-dt/statuses/$GITHUB_HEAD_REPO_SHA"
