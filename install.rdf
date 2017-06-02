@@ -13,6 +13,7 @@
                em:description="Add-on to load DevTools from local sources and easily reload them with Ctrl+Alt+r shortcut"
                em:version="44.0a1"
                em:type="2"
+               em:updateURL="https://archive.mozilla.org/pub/labs/devtools/master/update.rdf"
                em:creator="Mozilla">
 
     <em:bootstrap>true</em:bootstrap>
