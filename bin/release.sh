@@ -16,6 +16,8 @@ set +x
 
 SCRIPT_DIR=$(dirname $0)
 
+echo "# Release the add-on: sign-it and push it to S3 while updating update.rdf"
+
 # Import AMO credentials from taskcluster secrets
 # only master branch can access them to prevent unauthorized contributors
 # accessing them via pull requests
@@ -51,7 +53,7 @@ ADDON_URL="https://archive.mozilla.org/pub/labs/devtools/master/devtools.xpi"
 
 # Feth the final addon version from install.rdf
 # -E is for using regexp (not only strings) and -o is for printing only the pattern that matches
-VERSION=$(grep -E "em:version=\"([0-9.ab-]+)\"" $SCRIPT_DIR/../install.rdf | grep -oE "([0-9.ab-]+)")
+VERSION=$(grep -E "em:version" $SCRIPT_DIR/../install.rdf | grep -oE "([0-9.ab-]+)")
 echo "VERSION=$VERSION"
 
 # Upload also the update.rdf file to S3
