@@ -13,7 +13,7 @@
 
 const { getLabelAndShallowSize } = require("devtools/shared/heapsnapshot/DominatorTreeNode");
 
-const TEST_URL = "http://example.com/browser/devtools/client/memory/test/browser/doc_empty.html";
+const TEST_URL = "http://example.com/browser/client/memory/test/browser/doc_empty.html";
 
 function* getWindowsInSnapshot(front) {
   dumpn("Taking snapshot.");

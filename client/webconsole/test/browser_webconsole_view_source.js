@@ -10,7 +10,7 @@
 
 "use strict";
 
-const TEST_URI = "https://example.com/browser/devtools/client/webconsole/" +
+const TEST_URI = "https://example.com/browser/client/webconsole/" +
                  "test/test-mixedcontent-securityerrors.html";
 
 add_task(function* () {

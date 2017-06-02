@@ -11,7 +11,7 @@ const FRAME_SCRIPT_UTILS_URL =
 
 // shared-head.js handles imports, constants, and utility functions
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/framework/test/shared-head.js", this);
+  "chrome://mochitests/content/browser/client/framework/test/shared-head.js", this);
 
 // DOM panel actions.
 const constants = require("devtools/client/dom/content/constants");

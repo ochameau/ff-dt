@@ -8,10 +8,10 @@
 // Import the GCLI test helper
 /* import-globals-from ../../commandline/test/helpers.js */
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/commandline/test/helpers.js",
+  "chrome://mochitests/content/browser/client/commandline/test/helpers.js",
   this);
 
-const TEST_URI = "http://example.com/browser/devtools/client/styleeditor/" +
+const TEST_URI = "http://example.com/browser/client/styleeditor/" +
                  "test/browser_styleeditor_cmd_edit.html";
 
 add_task(function* () {
@@ -62,7 +62,7 @@ add_task(function* () {
       setup: "edit http",
       check: {
         input: "edit http",
-        hints: "://example.com/browser/devtools/client/styleeditor/test/" +
+        hints: "://example.com/browser/client/styleeditor/test/" +
                "resources_inpage1.css [line]",
         markup: "VVVVVIIII",
         status: "ERROR",
@@ -80,7 +80,7 @@ add_task(function* () {
       setup: "edit page1",
       check: {
         input: "edit page1",
-        hints: " [line] -> http://example.com/browser/devtools/client/" +
+        hints: " [line] -> http://example.com/browser/client/" +
                "styleeditor/test/resources_inpage1.css",
         markup: "VVVVVIIIII",
         status: "ERROR",
@@ -98,7 +98,7 @@ add_task(function* () {
       setup: "edit page2",
       check: {
         input: "edit page2",
-        hints: " [line] -> http://example.com/browser/devtools/client/" +
+        hints: " [line] -> http://example.com/browser/client/" +
                "styleeditor/test/resources_inpage2.css",
         markup: "VVVVVIIIII",
         status: "ERROR",

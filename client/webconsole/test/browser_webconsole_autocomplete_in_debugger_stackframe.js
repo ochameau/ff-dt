@@ -8,7 +8,7 @@
 
 "use strict";
 
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/" +
+const TEST_URI = "http://example.com/browser/client/webconsole/" +
                  "test/test-autocomplete-in-stackframe.html";
 
 // Force the old debugger UI since it's directly used (see Bug 1301705)

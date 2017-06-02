@@ -8,7 +8,7 @@
 
 // Load Web Console head.js, it implements helper console test API
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/webconsole/test/head.js", this);
+  "chrome://mochitests/content/browser/client/webconsole/test/head.js", this);
 
 const FRAME_SCRIPT_UTILS_URL =
   "chrome://devtools/content/shared/frame-script-utils.js";

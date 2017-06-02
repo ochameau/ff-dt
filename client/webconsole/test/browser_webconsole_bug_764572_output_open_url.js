@@ -8,7 +8,7 @@
 
 "use strict";
 
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/" +
+const TEST_URI = "http://example.com/browser/client/webconsole/" +
                  "test/test-console.html";
 const COMMAND_NAME = "consoleCmd_openURL";
 const CONTEXT_MENU_ID = "#menu_openURL";
