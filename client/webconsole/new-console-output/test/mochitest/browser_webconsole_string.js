@@ -5,7 +5,7 @@
 
 "use strict";
 
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/mochitest/test-console.html";
+const TEST_URI = "http://example.com/browser/client/webconsole/new-console-output/test/mochitest/test-console.html";
 
 add_task(function* () {
   let hud = yield openNewTabAndConsole(TEST_URI);

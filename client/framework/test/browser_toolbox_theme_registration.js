@@ -7,7 +7,7 @@
 "use strict";
 
 // Test for dynamically registering and unregistering themes
-const CHROME_URL = "chrome://mochitests/content/browser/devtools/client/framework/test/";
+const CHROME_URL = "chrome://mochitests/content/browser/client/framework/test/";
 const TEST_THEME_NAME = "test-theme";
 const LIGHT_THEME_NAME = "light";
 

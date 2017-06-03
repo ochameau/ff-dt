@@ -30,7 +30,7 @@ const ProjectEditor = require("devtools/client/projecteditor/lib/projecteditor")
 const DevToolsUtils = require("devtools/shared/DevToolsUtils");
 const flags = require("devtools/shared/flags");
 
-const TEST_URL_ROOT = "http://mochi.test:8888/browser/devtools/client/projecteditor/test/";
+const TEST_URL_ROOT = "http://mochi.test:8888/browser/client/projecteditor/test/";
 const SAMPLE_WEBAPP_URL = TEST_URL_ROOT + "/helper_homepage.html";
 var TEMP_PATH;
 var TEMP_FOLDER_NAME = "ProjectEditor" + (new Date().getTime());
@@ -126,7 +126,7 @@ function addProjectEditorTabForTempDirectory(opts = {}) {
 }
 
 function addProjectEditorTab(opts = {}) {
-  return addTab("chrome://mochitests/content/browser/devtools/client/projecteditor/test/projecteditor-test.xul").then(() => {
+  return addTab("chrome://mochitests/content/browser/client/projecteditor/test/projecteditor-test.xul").then(() => {
     let iframe = content.document.getElementById("projecteditor-iframe");
     if (opts.menubar !== false) {
       opts.menubar = content.document.querySelector("menubar");

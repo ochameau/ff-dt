@@ -9,7 +9,7 @@
 
 // shared-head.js handles imports, constants, and utility functions
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/framework/test/head.js", this);
+  "chrome://mochitests/content/browser/client/framework/test/head.js", this);
 
 const JSON_VIEW_PREF = "devtools.jsonview.enabled";
 

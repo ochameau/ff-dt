@@ -11,7 +11,7 @@
 
 // Test the webconsole output for various types of objects.
 
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/" +
+const TEST_URI = "http://example.com/browser/client/webconsole/" +
                  "test/test-console-output-04.html";
 
 var inputTests = [
