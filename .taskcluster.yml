@@ -29,10 +29,15 @@ tasks:
           - pull_request.synchronize
     payload:
       env:
+# Pass all useful variable to the decision task so that it can
+# Set these env variables to the tasks it create
+# You can find a list of preprocessed variable here:
+# Services.vc.compare("44.0a1.201706030109", "44.0a1.201706031651")
         GITHUB_HEAD_USER_EMAIL: "{{ event.head.user.email }}"
         GITHUB_HEAD_REPO_URL: "{{ event.head.repo.url }}"
         GITHUB_HEAD_REPO_SHA: "{{ event.head.sha }}"
         GITHUB_HEAD_REPO_BRANCH: "{{ event.head.repo.branch }}"
+        GITHUB_PULL_REQUEST: "{{ event.pullNumber }}"
       maxRunTime: 600
       image: 'node:6'
 # taskclusterProxy is required to implement a decision task
@@ -82,10 +87,15 @@ tasks:
           - reference
     payload:
       env:
+# Pass all useful variable to the decision task so that it can
+# Set these env variables to the tasks it create
+# You can find a list of preprocessed variable here:
+# Services.vc.compare("44.0a1.201706030109", "44.0a1.201706031651")
         GITHUB_HEAD_USER_EMAIL: "{{ event.head.user.email }}"
         GITHUB_HEAD_REPO_URL: "{{ event.head.repo.url }}"
         GITHUB_HEAD_REPO_SHA: "{{ event.head.sha }}"
         GITHUB_HEAD_REPO_BRANCH: "{{ event.head.repo.branch }}"
+        GITHUB_PULL_REQUEST: "{{ event.pullNumber }}"
       maxRunTime: 600
       image: 'node:6'
 # taskclusterProxy is required to implement a decision task

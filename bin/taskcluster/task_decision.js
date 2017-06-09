@@ -8,7 +8,8 @@ let ExportedEnvs = [
   "GITHUB_HEAD_USER_EMAIL",
   "GITHUB_HEAD_REPO_URL",
   "GITHUB_HEAD_REPO_SHA",
-  "GITHUB_HEAD_REPO_BRANCH"
+  "GITHUB_HEAD_REPO_BRANCH",
+  "GITHUB_PULL_REQUEST"
 ];
 
 let queue = new taskcluster.Queue({
@@ -57,6 +58,8 @@ function createTask(name, yml) {
   for (let name of ExportedEnvs) {
     env[name] = process.env[name];
   }
+  // Helps tasks computing the route names
+  env["TASK_NAME"] = name;
 
   // We need to convert Windows artifact expires attribute
   // (which is mandatory on windows)
@@ -89,7 +92,7 @@ function createTask(name, yml) {
 
     routes: [
       "index.project.devtools.branches." + process.env.GITHUB_HEAD_REPO_BRANCH + "." + name,
-      "index.project.devtools.branches." + process.env.GITHUB_HEAD_REPO_SHA + "." + name
+      "index.project.devtools.revisions." + process.env.GITHUB_HEAD_REPO_SHA + "." + name
     ],
 
     scopes:         yml.scopes,
