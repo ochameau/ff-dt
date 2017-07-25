@@ -8,7 +8,7 @@
 /* import-globals-from ../../inspector/test/head.js */
 // Import the inspector's head.js first (which itself imports shared-head.js).
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/inspector/test/head.js",
+  "chrome://mochitests/content/browser/client/inspector/test/head.js",
   this);
 
 const FRAME_SCRIPT_URL = CHROME_URL_ROOT + "doc_frame_script.js";

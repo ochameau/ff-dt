@@ -7,8 +7,8 @@
 
 "use strict";
 
-const TEST_BASE_HTTP = "http://example.com/browser/devtools/client/commandline/test/";
-const TEST_BASE_HTTPS = "https://example.com/browser/devtools/client/commandline/test/";
+const TEST_BASE_HTTP = "http://example.com/browser/client/commandline/test/";
+const TEST_BASE_HTTPS = "https://example.com/browser/client/commandline/test/";
 
 var { require } = Cu.import("resource://devtools/shared/Loader.jsm", {});
 var { console } = require("resource://gre/modules/Console.jsm");

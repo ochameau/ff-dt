@@ -3,4 +3,4 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 browser.jar:
-    skin/classic/browser/devtools/common.css (common.css)
+    skin/classic/browser/common.css (common.css)

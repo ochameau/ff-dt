@@ -7,12 +7,12 @@
 "use strict";
 
 // shared-head.js handles imports, constants, and utility functions
-Services.scriptloader.loadSubScript("chrome://mochitests/content/browser/devtools/client/framework/test/shared-head.js", this);
+Services.scriptloader.loadSubScript("chrome://mochitests/content/browser/client/framework/test/shared-head.js", this);
 
 const {DOMHelpers} = Cu.import("resource://devtools/client/shared/DOMHelpers.jsm", {});
 const {Hosts} = require("devtools/client/framework/toolbox-hosts");
 
-const TEST_URI_ROOT = "http://example.com/browser/devtools/client/shared/test/";
+const TEST_URI_ROOT = "http://example.com/browser/client/shared/test/";
 const OPTIONS_VIEW_URL = TEST_URI_ROOT + "doc_options-view.xul";
 
 function catchFail(func) {

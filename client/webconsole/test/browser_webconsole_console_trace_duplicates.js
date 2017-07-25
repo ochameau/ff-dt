@@ -6,7 +6,7 @@
 "use strict";
 
 function test() {
-  const TEST_URI = "http://example.com/browser/devtools/client/webconsole/" +
+  const TEST_URI = "http://example.com/browser/client/webconsole/" +
                    "test/test-bug_939783_console_trace_duplicates.html";
 
   Task.spawn(runner).then(finishTest);

@@ -5,7 +5,7 @@
 
 "use strict";
 
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/" +
+const TEST_URI = "http://example.com/browser/client/webconsole/" +
                  "test/test-network.html";
 const PREF = "devtools.webconsole.persistlog";
 

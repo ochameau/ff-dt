@@ -19,7 +19,7 @@ stubPreparedMessages.set("GET request", new NetworkEventMessage({
   "level": "log",
   "isXHR": false,
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET"
   },
   "response": {},
@@ -35,7 +35,7 @@ stubPreparedMessages.set("GET request update", new NetworkEventMessage({
   "actor": "server1.conn0.child1/netEvent30",
   "level": "log",
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET",
     "headersSize": 489
   },
@@ -65,7 +65,7 @@ stubPreparedMessages.set("XHR GET request", new NetworkEventMessage({
   "level": "log",
   "isXHR": true,
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET"
   },
   "response": {},
@@ -81,7 +81,7 @@ stubPreparedMessages.set("XHR GET request update", new NetworkEventMessage({
   "actor": "server1.conn0.child1/netEvent31",
   "level": "log",
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET",
     "headersSize": 489
   },
@@ -111,7 +111,7 @@ stubPreparedMessages.set("XHR POST request", new NetworkEventMessage({
   "level": "log",
   "isXHR": true,
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "POST"
   },
   "response": {},
@@ -127,7 +127,7 @@ stubPreparedMessages.set("XHR POST request update", new NetworkEventMessage({
   "actor": "server1.conn0.child1/netEvent32",
   "level": "log",
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "POST",
     "headersSize": 509
   },
@@ -160,16 +160,16 @@ stubPackets.set("GET request", {
   "discardResponseBody": true,
   "startedDateTime": "2017-02-13T21:40:56.850Z",
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET"
   },
   "isXHR": false,
   "cause": {
     "type": "img",
-    "loadingDocumentUri": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+    "loadingDocumentUri": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
     "stacktrace": [
       {
-        "filename": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+        "filename": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
         "lineNumber": 3,
         "columnNumber": 1,
         "functionName": "triggerPacket",
@@ -203,7 +203,7 @@ stubPackets.set("GET request update", {
     "_type": "NetworkEvent",
     "actor": "server1.conn0.child1/netEvent30",
     "request": {
-      "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+      "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
       "method": "GET",
       "headersSize": 489
     },
@@ -233,16 +233,16 @@ stubPackets.set("XHR GET request", {
   "discardResponseBody": true,
   "startedDateTime": "2017-02-13T21:40:57.746Z",
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "GET"
   },
   "isXHR": true,
   "cause": {
     "type": "xhr",
-    "loadingDocumentUri": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+    "loadingDocumentUri": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
     "stacktrace": [
       {
-        "filename": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+        "filename": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
         "lineNumber": 4,
         "columnNumber": 1,
         "functionName": "triggerPacket",
@@ -276,7 +276,7 @@ stubPackets.set("XHR GET request update", {
     "_type": "NetworkEvent",
     "actor": "server1.conn0.child1/netEvent31",
     "request": {
-      "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+      "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
       "method": "GET",
       "headersSize": 489
     },
@@ -306,16 +306,16 @@ stubPackets.set("XHR POST request", {
   "discardResponseBody": true,
   "startedDateTime": "2017-02-13T21:40:58.414Z",
   "request": {
-    "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+    "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
     "method": "POST"
   },
   "isXHR": true,
   "cause": {
     "type": "xhr",
-    "loadingDocumentUri": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+    "loadingDocumentUri": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
     "stacktrace": [
       {
-        "filename": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
+        "filename": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html",
         "lineNumber": 4,
         "columnNumber": 1,
         "functionName": "triggerPacket",
@@ -349,7 +349,7 @@ stubPackets.set("XHR POST request update", {
     "_type": "NetworkEvent",
     "actor": "server1.conn0.child1/netEvent32",
     "request": {
-      "url": "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
+      "url": "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/inexistent.html",
       "method": "POST",
       "headersSize": 509
     },

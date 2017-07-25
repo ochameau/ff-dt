@@ -22,7 +22,7 @@ const testCases = [
     [
       getCookieId("uc1", ".example.org", "/"),
       getCookieId("cs2", ".example.org", "/"),
-      getCookieId("sc1", "sectest1.example.org", "/browser/devtools/client/storage/test/")
+      getCookieId("sc1", "sectest1.example.org", "/browser/client/storage/test/")
     ]
   ],
   [["localStorage", "http://test1.example.org"],

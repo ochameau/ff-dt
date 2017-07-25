@@ -175,7 +175,7 @@ describe("ConsoleAPICall component:", () => {
     it("renders", () => {
       const message = stubPreparedMessages.get("console.trace()");
       const wrapper = render(ConsoleApiCall({ message, serviceContainer, open: true }));
-      const filepath = "http://example.com/browser/devtools/client/webconsole/" +
+      const filepath = "http://example.com/browser/client/webconsole/" +
                        "new-console-output/test/fixtures/stub-generators/" +
                        "test-console-api.html";
 
@@ -324,7 +324,7 @@ describe("ConsoleAPICall component:", () => {
       const wrapper = render(ConsoleApiCall({ message, serviceContainer }));
 
       expect(wrapper.find(".message-body").text())
-        .toBe("Window http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-console-api.html");
+        .toBe("Window http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-console-api.html");
     });
   });
 

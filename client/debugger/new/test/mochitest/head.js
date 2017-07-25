@@ -34,12 +34,12 @@
 
 // shared-head.js handles imports, constants, and utility functions
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/framework/test/shared-head.js",
+  "chrome://mochitests/content/browser/client/framework/test/shared-head.js",
   this
 );
 var { Toolbox } = require("devtools/client/framework/toolbox");
 const EXAMPLE_URL =
-  "http://example.com/browser/devtools/client/debugger/new/test/mochitest/examples/";
+  "http://example.com/browser/client/debugger/new/test/mochitest/examples/";
 
 Services.prefs.setBoolPref("devtools.debugger.new-debugger-frontend", true);
 

@@ -55,7 +55,7 @@ add_task(function* () {
       ["cookies", "https://sectest1.example.org"], [
         getCookieId("cs2", ".example.org", "/"),
         getCookieId("sc1", "sectest1.example.org",
-                    "/browser/devtools/client/storage/test/"),
+                    "/browser/client/storage/test/"),
         getCookieId("uc1", ".example.org", "/")
       ]
     ],
@@ -82,7 +82,7 @@ add_task(function* () {
         getCookieId("cs2", ".example.org", "/"),
         getCookieId("uc1", ".example.org", "/"),
         getCookieId("sc1", "sectest1.example.org",
-                    "/browser/devtools/client/storage/test/"),
+                    "/browser/client/storage/test/"),
       ]
     ],
   ]);

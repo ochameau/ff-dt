@@ -7,7 +7,7 @@
 
 const TEST_URI = "data:text/html;charset=utf-8,Web Console test for " +
                  "bug 601177: log levels";
-const TEST_URI2 = "http://example.com/browser/devtools/client/webconsole/" +
+const TEST_URI2 = "http://example.com/browser/client/webconsole/" +
                   "test/test-bug-601177-log-levels.html";
 
 add_task(function* () {

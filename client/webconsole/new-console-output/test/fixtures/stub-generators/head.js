@@ -11,7 +11,7 @@
 // shared-head.js handles imports, constants, and utility functions
 // Load the shared-head file first.
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/framework/test/shared-head.js",
+  "chrome://mochitests/content/browser/client/framework/test/shared-head.js",
   this);
 
 Services.prefs.setBoolPref("devtools.webconsole.new-frontend-enabled", true);
@@ -281,7 +281,7 @@ module.exports = {
 }
 
 function* generateConsoleApiStubs() {
-  const TEST_URI = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-console-api.html";
+  const TEST_URI = "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-console-api.html";
 
   let stubs = {
     preparedMessages: [],
@@ -328,7 +328,7 @@ function* generateConsoleApiStubs() {
 }
 
 function* generateCssMessageStubs() {
-  const TEST_URI = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-css-message.html";
+  const TEST_URI = "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-css-message.html";
 
   let stubs = {
     preparedMessages: [],
@@ -392,7 +392,7 @@ function* generateEvaluationResultStubs() {
 }
 
 function* generateNetworkEventStubs() {
-  const TEST_URI = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html";
+  const TEST_URI = "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-network-event.html";
 
   let stubs = {
     preparedMessages: [],
@@ -462,7 +462,7 @@ function* generateNetworkEventStubs() {
 }
 
 function* generatePageErrorStubs() {
-  const TEST_URI = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/fixtures/stub-generators/test-console-api.html";
+  const TEST_URI = "http://example.com/browser/client/webconsole/new-console-output/test/fixtures/stub-generators/test-console-api.html";
 
   let stubs = {
     preparedMessages: [],

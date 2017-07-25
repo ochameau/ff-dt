@@ -397,7 +397,7 @@ var { helpers, assert } = (function () {
     }, recover);
   };
 
-  const MOCK_COMMANDS_URI = "chrome://mochitests/content/browser/devtools/client/commandline/test/mockCommands.js";
+  const MOCK_COMMANDS_URI = "chrome://mochitests/content/browser/client/commandline/test/mockCommands.js";
 
   const defer = function () {
     const deferred = { };

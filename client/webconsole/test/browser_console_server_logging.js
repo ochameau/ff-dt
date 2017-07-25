@@ -7,7 +7,7 @@
 
 // Check that server log appears in the console panel - bug 1168872
 add_task(function* () {
-  const TEST_URI = "http://example.com/browser/devtools/client/webconsole/test/test-console-server-logging.sjs";
+  const TEST_URI = "http://example.com/browser/client/webconsole/test/test-console-server-logging.sjs";
 
   yield loadTab(TEST_URI);
 
@@ -37,7 +37,7 @@ add_task(function* () {
 });
 
 add_task(function* () {
-  const TEST_URI = "http://example.com/browser/devtools/client/webconsole/test/test-console-server-logging-array.sjs";
+  const TEST_URI = "http://example.com/browser/client/webconsole/test/test-console-server-logging-array.sjs";
 
   yield loadTab(TEST_URI);
 
@@ -66,7 +66,7 @@ add_task(function* () {
 });
 
 add_task(function* () {
-  const TEST_URI = "http://example.com/browser/devtools/client/webconsole/test/test-console-server-logging-backtrace.sjs";
+  const TEST_URI = "http://example.com/browser/client/webconsole/test/test-console-server-logging-backtrace.sjs";
 
   yield loadTab(TEST_URI);
 

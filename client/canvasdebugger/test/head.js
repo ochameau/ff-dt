@@ -23,7 +23,7 @@ var { isWebGLSupported } = require("devtools/client/shared/webgl-utils");
 var mm = null;
 
 const FRAME_SCRIPT_UTILS_URL = "chrome://devtools/content/shared/frame-script-utils.js";
-const EXAMPLE_URL = "http://example.com/browser/devtools/client/canvasdebugger/test/";
+const EXAMPLE_URL = "http://example.com/browser/client/canvasdebugger/test/";
 const SET_TIMEOUT_URL = EXAMPLE_URL + "doc_settimeout.html";
 const NO_CANVAS_URL = EXAMPLE_URL + "doc_no-canvas.html";
 const RAF_NO_CANVAS_URL = EXAMPLE_URL + "doc_raf-no-canvas.html";

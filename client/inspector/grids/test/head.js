@@ -8,12 +8,12 @@
 
 // Import the inspector's head.js first (which itself imports shared-head.js).
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/inspector/test/head.js",
+  "chrome://mochitests/content/browser/client/inspector/test/head.js",
   this);
 
 // Load the shared Redux helpers into this compartment.
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/framework/test/shared-redux-head.js",
+  "chrome://mochitests/content/browser/client/framework/test/shared-redux-head.js",
   this);
 
 Services.prefs.setBoolPref("devtools.promote.layoutview.showPromoteBar", false);

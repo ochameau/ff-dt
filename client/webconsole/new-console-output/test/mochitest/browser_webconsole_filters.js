@@ -7,7 +7,7 @@
 
 "use strict";
 const { MESSAGE_LEVEL } = require("devtools/client/webconsole/new-console-output/constants");
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/new-console-output/test/mochitest/test-console-filters.html";
+const TEST_URI = "http://example.com/browser/client/webconsole/new-console-output/test/mochitest/test-console-filters.html";
 add_task(function* () {
   let hud = yield openNewTabAndConsole(TEST_URI);
   const outputNode = hud.ui.outputNode;

@@ -6,7 +6,7 @@
 "use strict";
 
 const INIT_URI = "data:text/html;charset=utf-8,Web Console - bug 600183 test";
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/" +
+const TEST_URI = "http://example.com/browser/client/webconsole/" +
                  "test/test-bug-600183-charset.html";
 
 function performTest(lastFinishedRequest, console) {

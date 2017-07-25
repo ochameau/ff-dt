@@ -23,7 +23,7 @@ add_task(function* testLegacyAddon() {
   });
 
   let container = document.querySelector(`[data-addon-id="${addonId}"]`);
-  testFilePath(container, "browser/devtools/client/aboutdebugging/test/addons/unpacked/");
+  testFilePath(container, "browser/client/aboutdebugging/test/addons/unpacked/");
 
   yield uninstallAddon({document, id: addonId, name: addonName});
 

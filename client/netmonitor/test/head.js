@@ -10,7 +10,7 @@
 
 // shared-head.js handles imports, constants, and utility functions
 Services.scriptloader.loadSubScript(
-  "chrome://mochitests/content/browser/devtools/client/framework/test/shared-head.js",
+  "chrome://mochitests/content/browser/client/framework/test/shared-head.js",
   this);
 
 const { EVENTS } = require("devtools/client/netmonitor/src/constants");
@@ -28,8 +28,8 @@ const {
 } = require("devtools/client/netmonitor/src/utils/request-utils");
 
 /* eslint-disable no-unused-vars, max-len */
-const EXAMPLE_URL = "http://example.com/browser/devtools/client/netmonitor/test/";
-const HTTPS_EXAMPLE_URL = "https://example.com/browser/devtools/client/netmonitor/test/";
+const EXAMPLE_URL = "http://example.com/browser/client/netmonitor/test/";
+const HTTPS_EXAMPLE_URL = "https://example.com/browser/client/netmonitor/test/";
 
 const API_CALLS_URL = EXAMPLE_URL + "html_api-calls-test-page.html";
 const SIMPLE_URL = EXAMPLE_URL + "html_simple-test-page.html";
@@ -67,7 +67,7 @@ const HTTPS_CONTENT_TYPE_SJS = HTTPS_EXAMPLE_URL + "sjs_content-type-test-server
 const STATUS_CODES_SJS = EXAMPLE_URL + "sjs_status-codes-test-server.sjs";
 const SORTING_SJS = EXAMPLE_URL + "sjs_sorting-test-server.sjs";
 const HTTPS_REDIRECT_SJS = EXAMPLE_URL + "sjs_https-redirect-test-server.sjs";
-const CORS_SJS_PATH = "/browser/devtools/client/netmonitor/test/sjs_cors-test-server.sjs";
+const CORS_SJS_PATH = "/browser/client/netmonitor/test/sjs_cors-test-server.sjs";
 const HSTS_SJS = EXAMPLE_URL + "sjs_hsts-test-server.sjs";
 
 const HSTS_BASE_URL = EXAMPLE_URL;

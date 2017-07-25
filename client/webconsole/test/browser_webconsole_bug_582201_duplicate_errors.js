@@ -9,7 +9,7 @@
 "use strict";
 
 const INIT_URI = "data:text/html;charset=utf8,hello world";
-const TEST_URI = "http://example.com/browser/devtools/client/webconsole/" +
+const TEST_URI = "http://example.com/browser/client/webconsole/" +
                  "test/test-duplicate-error.html";
 
 add_task(function* () {

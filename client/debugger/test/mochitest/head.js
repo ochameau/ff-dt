@@ -6,7 +6,7 @@
 "use strict";
 
 // shared-head.js handles imports, constants, and utility functions
-Services.scriptloader.loadSubScript("chrome://mochitests/content/browser/devtools/client/framework/test/shared-head.js", this);
+Services.scriptloader.loadSubScript("chrome://mochitests/content/browser/client/framework/test/shared-head.js", this);
 
 // Disable logging for faster test runs. Set this pref to true if you want to
 // debug a test in your try runs. Both the debugger server and frontend will
@@ -26,9 +26,9 @@ const chromeRegistry = Cc["@mozilla.org/chrome/chrome-registry;1"].getService(Ci
 // Override promise with deprecated-sync-thenables
 promise = Cu.import("resource://devtools/shared/deprecated-sync-thenables.js", {}).Promise;
 
-const EXAMPLE_URL = "http://example.com/browser/devtools/client/debugger/test/mochitest/";
+const EXAMPLE_URL = "http://example.com/browser/client/debugger/test/mochitest/";
 const FRAME_SCRIPT_URL = getRootDirectory(gTestPath) + "code_frame-script.js";
-const CHROME_URL = "chrome://mochitests/content/browser/devtools/client/debugger/test/mochitest/";
+const CHROME_URL = "chrome://mochitests/content/browser/client/debugger/test/mochitest/";
 const CHROME_URI = Services.io.newURI(CHROME_URL);
 
 Services.prefs.setBoolPref("devtools.debugger.new-debugger-frontend", false);

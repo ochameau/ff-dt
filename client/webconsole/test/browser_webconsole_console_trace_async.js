@@ -5,7 +5,7 @@
 
 "use strict";
 
-const TEST_URI = "http://example.com/browser/devtools/client/" +
+const TEST_URI = "http://example.com/browser/client/" +
                  "webconsole/test/test-console-trace-async.html";
 
 add_task(function* runTest() {
